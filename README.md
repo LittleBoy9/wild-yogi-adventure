@@ -9,6 +9,26 @@ printed expedition banners.
 
 ---
 
+## Before you push — 1 thing
+
+Open `index.html` and find-and-replace this placeholder:
+
+```
+https://YOURNAME.github.io/wild-yogi-adventure
+```
+
+with the real address, no trailing slash. It appears 4 times, all in the `<head>`.
+
+**Why it matters:** `og:image` must be an absolute URL. Link-preview scrapers
+(WhatsApp, Facebook, iMessage, LinkedIn, X) do not resolve relative paths — leave it
+and the share card appears with **no image**. Since this will most likely be sent over
+WhatsApp, that is the difference between a proper preview card and a bare grey link.
+
+Verify it afterwards by pasting the live URL into
+<https://developers.facebook.com/tools/debug/> (works for WhatsApp too — same scraper).
+
+---
+
 ## Deploy to GitHub Pages
 
 ```bash
