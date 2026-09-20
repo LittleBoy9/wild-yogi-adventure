@@ -92,27 +92,6 @@
   menu && $$('a', menu).forEach(a => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
-  /* ---------------------------------------------------------- custom cursor */
-  const cur = $('#cursor');
-  if (cur && window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
-    const ring = $('.cursor__ring', cur), dot = $('.cursor__dot', cur);
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    window.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cur.classList.add('is-on');
-      dot.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
-    });
-    (function loop() {
-      rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16;
-      ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
-      requestAnimationFrame(loop);
-    })();
-    document.addEventListener('mouseover', e => {
-      const t = e.target.closest('a,button,[data-cursor="grow"],.gitem,.trek,.pt');
-      cur.classList.toggle('is-grow', !!t);
-    });
-  }
-
   /* --------------------------------------------------------- split headings */
   $$('[data-splitline]').forEach(el => {
     const words = el.textContent.trim().split(/\s+/);
@@ -406,15 +385,26 @@
 
   /* ------------------------------------------------------------ instagram */
   const ir = $('#instaRow');
-  if (ir) {
-    const picks = [0, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45];
-    ir.innerHTML = picks.map(i =>
-      '<a class="icell" href="https://www.instagram.com/' + WY.biz.instagram + '/" target="_blank" rel="noopener" aria-label="Open Instagram">' +
-      '<img src="' + WY.gallery[i].sm + '" alt="" loading="lazy" decoding="async">' +
-      '<span class="icell__ov"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+  if (ir && WY.instagram && WY.instagram.length) {
+    const igIcon =
+      '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
       '<rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="1.7"/>' +
       '<circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="1.7"/>' +
-      '<circle cx="17.3" cy="6.7" r="1.2" fill="#fff"/></svg></span></a>').join('');
+      '<circle cx="17.3" cy="6.7" r="1.2" fill="#fff"/></svg>';
+    const reelIcon =
+      '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+      '<path d="M8 5v14l11-7z" fill="#fff"/></svg>';
+
+    ir.innerHTML = WY.instagram.map(p =>
+      '<a class="icell" href="' + p.href + '" target="_blank" rel="noopener" ' +
+        'aria-label="View this post on Instagram' + (p.date ? ', posted ' + esc(p.date) : '') + '">' +
+        '<img src="' + p.img + '" alt="Instagram post by Wild Yogi Adventures' +
+          (p.date ? ', ' + esc(p.date) : '') + '" loading="lazy" decoding="async">' +
+        (p.reel ? '<span class="icell__reel">' + reelIcon + '</span>' : '') +
+        '<span class="icell__ov">' + igIcon +
+          (p.date ? '<span class="icell__date">' + esc(p.date) + '</span>' : '') +
+        '</span>' +
+      '</a>').join('');
   }
 
   /* ------------------------------------------------------------- lightbox */

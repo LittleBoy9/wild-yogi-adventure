@@ -222,3 +222,21 @@ WY.pillars = [
   { k: 'women', n: '06', title: 'Solo travellers, looked after',
     body: 'Two separate solo female trekkers wrote that they felt safe and supported start to finish. It is worth saying out loud.' }
 ];
+
+/* --- Instagram: real posts from @wildyogiadventures ------------------------
+   Thumbnails downloaded from their public profile (Instagram's CDN URLs are
+   signed and expire, so they are self-hosted here). Each tile deep-links to
+   the actual post. Captured 2026-09-20 — re-run to refresh.
+   -------------------------------------------------------------------------- */
+WY.instagram = [
+  { img: 'assets/img/insta/ig01.webp', href: 'https://www.instagram.com/wildyogiadventures/p/DTddU80jZrh/', date: 'January 13, 2026', reel: false },
+  { img: 'assets/img/insta/ig02.webp', href: 'https://www.instagram.com/wildyogiadventures/p/DUFedotCT7R/', date: 'January 28, 2026', reel: false },
+  { img: 'assets/img/insta/ig03.webp', href: 'https://www.instagram.com/wildyogiadventures/p/Ddb1OSDCbL7/', date: 'September 18, 2026', reel: false },
+  { img: 'assets/img/insta/ig04.webp', href: 'https://www.instagram.com/wildyogiadventures/p/DdZT5MGCVJZ/', date: 'September 17, 2026', reel: false },
+  { img: 'assets/img/insta/ig05.webp', href: 'https://www.instagram.com/wildyogiadventures/reel/DdJhOA4Dk2N/', date: 'September 11, 2026', reel: true },
+  { img: 'assets/img/insta/ig06.webp', href: 'https://www.instagram.com/wildyogiadventures/p/Dc98K-DiZXr/', date: 'September 06, 2026', reel: false },
+  { img: 'assets/img/insta/ig07.webp', href: 'https://www.instagram.com/wildyogiadventures/p/DcupmJbibN4/', date: 'August 31, 2026', reel: false },
+  { img: 'assets/img/insta/ig08.webp', href: 'https://www.instagram.com/wildyogiadventures/p/DcH8CTWifzO/', date: 'August 16, 2026', reel: false },
+  { img: 'assets/img/insta/ig09.webp', href: 'https://www.instagram.com/wildyogiadventures/p/DcEjP6HEyCz/', date: 'August 15, 2026', reel: false },
+  { img: 'assets/img/insta/ig10.webp', href: 'https://www.instagram.com/wildyogiadventures/p/Db6KedmE_Vs/', date: 'August 11, 2026', reel: false }
+];

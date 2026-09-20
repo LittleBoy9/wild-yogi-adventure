@@ -13,7 +13,8 @@
 <meta property="og:image" content="assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0F0E'/%3E%3Cpath d='M4 24 L12 11 L17 19 L21 14 L28 24 Z' fill='%23E8734A'/%3E%3Ccircle cx='21' cy='8' r='2.5' fill='%23F2C14E'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="assets/img/brand/logo.png">
+<link rel="apple-touch-icon" href="assets/img/brand/logo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,19 +67,11 @@
 <!-- ============ SCROLL PROGRESS ============ -->
 <div class="scrollbar" aria-hidden="true"><i id="scrollbarFill"></i></div>
 
-<!-- ============ CUSTOM CURSOR ============ -->
-<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
-
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <a class="nav__brand" href="#top" aria-label="Wild Yogi Adventures — home">
-    <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
-      <circle cx="32" cy="32" r="30" class="mark__ring"/>
-      <circle cx="32" cy="32" r="25.5" class="mark__ring2"/>
-      <path d="M13 44 L24 26 L31 37 L37 28 L51 44 Z" class="mark__peak"/>
-      <circle cx="41" cy="19" r="4" class="mark__sun"/>
-      <path d="M28 44 v-7 a4 4 0 0 1 8 0 v7" class="mark__yogi"/>
-    </svg>
+    <img class="mark" src="assets/img/brand/logo.webp" width="150" height="150"
+         alt="Wild Yogi Adventures logo" decoding="async">
     <span class="nav__name">
       <b>Wild Yogi</b>
       <i>Adventures · est 2024</i>
@@ -94,7 +87,7 @@
     <a href="#plan">Plan</a>
   </nav>
 
-  <a class="nav__cta" href="#plan" data-cursor="grow">
+  <a class="nav__cta" href="#plan">
     <span>Plan a trek</span>
     <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </a>
@@ -149,18 +142,18 @@
     </p>
 
     <div class="hero__actions reveal">
-      <a class="btn btn--primary" href="#treks" data-cursor="grow">
+      <a class="btn btn--primary" href="#treks">
         <span>See the treks</span>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a class="btn btn--ghost" id="heroWa" href="#" data-cursor="grow">
+      <a class="btn btn--ghost" id="heroWa" href="#">
         <svg viewBox="0 0 24 24" aria-hidden="true" class="wa"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.95L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2m0 1.8a8.1 8.1 0 1 1-4.2 15.03l-.3-.18-3.07.88.9-3-.2-.31A8.1 8.1 0 0 1 12.04 3.8m-3.2 4.1c-.16 0-.42.06-.64.3s-.85.83-.85 2.02.87 2.34.99 2.5c.12.16 1.7 2.7 4.2 3.68 2.08.82 2.5.66 2.95.62.45-.04 1.45-.59 1.66-1.17.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28s-1.45-.72-1.67-.8c-.22-.08-.39-.12-.55.12s-.63.8-.77.96c-.14.16-.28.18-.52.06a6.65 6.65 0 0 1-1.96-1.21 7.4 7.4 0 0 1-1.36-1.69c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42s-.54-1.33-.75-1.82c-.2-.47-.4-.4-.55-.41z"/></svg>
         <span>WhatsApp us</span>
       </a>
     </div>
 
     <div class="hero__proof reveal">
-      <a class="rating" href="#reviews" data-cursor="grow">
+      <a class="rating" href="#reviews">
         <span class="rating__stars" aria-hidden="true">★★★★★</span>
         <span class="rating__num"><b>5.0</b> <i>on Google</i></span>
         <span class="rating__count"><b id="reviewCount">105</b> <i>reviews</i></span>
@@ -198,7 +191,7 @@
 
     <div class="manifesto__grid">
       <p class="reveal">A trip is arranged around you. A trek asks something of you — and hands something back that you cannot buy at the end of it.</p>
-      <p class="reveal">We are a small outfit out of Maheshtala, Kolkata, started in 2024 by someone who had already walked most of these trails himself. We run six routes. We do not run more than we can lead properly.</p>
+      <p class="reveal">We are a small outfit out of Maheshtala, Kolkata, started in 2024 by someone who had already walked most of these trails himself. We keep the route list short on purpose. We do not run more than we can lead properly.</p>
       <p class="reveal">Most people who come to us have never trekked before. That is the point. <b>Our job is to get a first-timer onto a ridge at 11,930 feet and back down again, safely, with the mountain still in them.</b></p>
     </div>
   </div>
@@ -210,7 +203,7 @@
     <div class="stat reveal"><b class="count" data-to="5" data-dec="1">0</b><span>Google rating</span></div>
     <div class="stat reveal"><b class="count" data-to="105">0</b><span>Reviews, all real</span></div>
     <div class="stat reveal"><b class="count" data-to="16200" data-comma="1">0</b><span>Highest pass, ft</span></div>
-    <div class="stat reveal"><b class="count" data-to="6">0</b><span>Routes we lead</span></div>
+    <div class="stat reveal"><b class="count" data-to="2024">0</b><span>Trekking since</span></div>
   </div>
 </section>
 
@@ -219,7 +212,7 @@
   <div class="wrap">
     <header class="sechead">
       <p class="kicker reveal"><span class="kicker__no">02</span> The treks</p>
-      <h2 class="sectitle" data-splitline>Six routes. Pick your altitude.</h2>
+      <h2 class="sectitle" data-splitline>Pick your altitude.</h2>
       <p class="secsub reveal">Every altitude below is the figure Wild Yogi prints on its own summit banner.</p>
     </header>
 
@@ -303,7 +296,7 @@
   <div class="revrow revrow--rev" id="revRow2"><div class="revrow__track"></div></div>
 
   <div class="wrap reviews__cta">
-    <a class="btn btn--ghost" id="allReviews" href="#" target="_blank" rel="noopener" data-cursor="grow">
+    <a class="btn btn--ghost" id="allReviews" href="#" target="_blank" rel="noopener">
       <span>Read all 105 on Google</span>
       <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
@@ -320,7 +313,7 @@
     </header>
     <div class="masonry" id="masonry"></div>
     <div class="gallery__more">
-      <button class="btn btn--ghost" id="galMore" data-cursor="grow"><span>Show more</span></button>
+      <button class="btn btn--ghost" id="galMore"><span>Show more</span></button>
     </div>
   </div>
 </section>
@@ -332,7 +325,7 @@
       <p class="kicker reveal"><span class="kicker__no">07</span> Instagram</p>
       <h2 class="sectitle" data-splitline>@wildyogiadventures</h2>
     </div>
-    <a class="btn btn--primary" href="https://www.instagram.com/wildyogiadventures/" target="_blank" rel="noopener" data-cursor="grow">
+    <a class="btn btn--primary" href="https://www.instagram.com/wildyogiadventures/" target="_blank" rel="noopener">
       <span>Follow</span>
       <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
@@ -396,7 +389,7 @@
         <textarea id="fNote" rows="3" placeholder="Questions about fitness, kit, cost…"></textarea>
       </label>
 
-      <button class="btn btn--primary btn--full" type="submit" data-cursor="grow">
+      <button class="btn btn--primary btn--full" type="submit">
         <svg viewBox="0 0 24 24" aria-hidden="true" class="wa"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.95L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2m0 1.8a8.1 8.1 0 1 1-4.2 15.03l-.3-.18-3.07.88.9-3-.2-.31A8.1 8.1 0 0 1 12.04 3.8m-3.2 4.1c-.16 0-.42.06-.64.3s-.85.83-.85 2.02.87 2.34.99 2.5c.12.16 1.7 2.7 4.2 3.68 2.08.82 2.5.66 2.95.62.45-.04 1.45-.59 1.66-1.17.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28s-1.45-.72-1.67-.8c-.22-.08-.39-.12-.55.12s-.63.8-.77.96c-.14.16-.28.18-.52.06a6.65 6.65 0 0 1-1.96-1.21 7.4 7.4 0 0 1-1.36-1.69c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42s-.54-1.33-.75-1.82c-.2-.47-.4-.4-.55-.41z"/></svg>
         <span>Send on WhatsApp</span>
       </button>
@@ -419,13 +412,8 @@
 <footer class="foot">
   <div class="wrap foot__inner">
     <div class="foot__brand">
-      <svg class="mark mark--lg" viewBox="0 0 64 64" aria-hidden="true">
-        <circle cx="32" cy="32" r="30" class="mark__ring"/>
-        <circle cx="32" cy="32" r="25.5" class="mark__ring2"/>
-        <path d="M13 44 L24 26 L31 37 L37 28 L51 44 Z" class="mark__peak"/>
-        <circle cx="41" cy="19" r="4" class="mark__sun"/>
-        <path d="M28 44 v-7 a4 4 0 0 1 8 0 v7" class="mark__yogi"/>
-      </svg>
+      <img class="mark mark--lg" src="assets/img/brand/logo.webp" width="150" height="150"
+           alt="Wild Yogi Adventures logo" decoding="async">
       <p class="foot__tag">Wander the wild,<br>awaken the yogi within.</p>
     </div>
 
@@ -456,7 +444,7 @@
 </footer>
 
 <!-- ============ FLOATING WHATSAPP ============ -->
-<a class="fab" id="fab" href="#" aria-label="Chat on WhatsApp" data-cursor="grow">
+<a class="fab" id="fab" href="#" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.95L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2m0 1.8a8.1 8.1 0 1 1-4.2 15.03l-.3-.18-3.07.88.9-3-.2-.31A8.1 8.1 0 0 1 12.04 3.8m-3.2 4.1c-.16 0-.42.06-.64.3s-.85.83-.85 2.02.87 2.34.99 2.5c.12.16 1.7 2.7 4.2 3.68 2.08.82 2.5.66 2.95.62.45-.04 1.45-.59 1.66-1.17.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28s-1.45-.72-1.67-.8c-.22-.08-.39-.12-.55.12s-.63.8-.77.96c-.14.16-.28.18-.52.06a6.65 6.65 0 0 1-1.96-1.21 7.4 7.4 0 0 1-1.36-1.69c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42s-.54-1.33-.75-1.82c-.2-.47-.4-.4-.55-.41z"/></svg>
   <span class="fab__label">Ask about a trek</span>
 </a>

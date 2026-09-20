@@ -66,7 +66,9 @@ Nothing on this page is invented. Sources:
 | Review quotes | verbatim from public Google reviews |
 | Team names (Avrajit, Tikaram, Joy) | named repeatedly across the reviews |
 | Sandakphu waypoint order | the route as described in their own reviews |
-| All 58 photos | their own Google Business listing |
+| All 58 trek photos | their own Google Business listing |
+| Logo | their Instagram profile picture |
+| 10 Instagram posts | their public Instagram profile |
 
 "It is a trek, not a trip" is a phrase from one of their actual reviews.
 
@@ -83,14 +85,21 @@ to check with them:
 4. **Route waypoint lists** on each trek card — standard published routes for Rupin,
    Bali, Valley of Flowers and Tunganath. Only Sandakphu's comes from their own reviews.
 5. **Valley of Flowers** has no altitude, because no banner photo showed one.
-6. **Elevation figures** for Srikhola, Rammam, Samanden, Molley, Sabargram, Phalut and
+6. **They run more treks than this page lists.** Their Instagram shows
+   **Kedarnath**, **Hampta Pass** and **Har Ki Dun with Marinda Tal (13,025 ft)** on a
+   "Trek Plans 2026" post. Those are not on here because there was no reliable photo or
+   route detail to build a card from — ask them which routes they actually want featured.
+   For this reason no hard count of routes appears anywhere on the page.
+7. **Elevation figures** for Srikhola, Rammam, Samanden, Molley, Sabargram, Phalut and
    Gurdum are published trail figures. Only Sandakphu and Aal come from their own signage.
 
 **There is no pricing anywhere on the site**, by design — every trek CTA opens WhatsApp
 asking for dates and cost, so nothing can be wrong in front of a customer.
 
-The logo mark is a **placeholder** drawn in SVG, loosely echoing their circular badge.
-Ask them for the real vector and swap it — it appears twice in `index.html` (`.mark`).
+The logo is **their real one**, taken from their Instagram profile picture
+(`assets/img/brand/logo.webp`). Instagram only serves it publicly at **150×150**, which
+is sharp enough at the sizes used here (42px in the nav, 76px in the footer) but not for
+print or a large hero. Worth asking them for the original vector.
 
 ---
 
@@ -121,19 +130,27 @@ then bump the `48` in the `WY.gallery` line of `data.js`.
 
 ## Instagram
 
-The photo wall under **@wildyogiadventures** is self-hosted and links to their profile.
+The strip under **@wildyogiadventures** shows their **10 most recent real posts**,
+each tile deep-linking to that exact post (reels get a play badge). Captured
+2026-09-20 from their public profile.
 
-It is not a live feed, and that is deliberate. Instagram's Basic Display API was shut
-down in **December 2024**, and the Graph API needs a linked Facebook Business account
-plus a server to hold the token — neither of which a static GitHub Pages site can do
-without logging into an account. The alternatives are third-party scraper APIs, which
-cost money, expose a key in client-side code, break regularly and violate Instagram's
-terms of service.
+The thumbnails are **self-hosted** rather than hotlinked, because Instagram's CDN URLs
+are signed and expire within days — linking them directly would leave broken images on
+the page inside a week.
 
-If they later want live posts, the clean route is official post embeds
-(`instagram.com/p/<shortcode>/embed` in an iframe) — no login, no key, no token.
+It is a snapshot, not a live feed, and that is a platform limit rather than a choice.
+Instagram's Basic Display API shut down in **December 2024**, and the Graph API needs a
+linked Facebook Business account plus a server to hold the token — neither of which a
+static GitHub Pages site can do without logging into an account. The alternatives are
+third-party scraper APIs, which cost money, expose a key in client-side code, break
+regularly and violate Instagram's terms.
 
----
+**To refresh the posts**, re-download the current thumbnails into `assets/img/insta/`
+and update the `WY.instagram` array in `data.js`. Takes a couple of minutes.
+
+If they ever want a genuinely live feed, the clean route is official post embeds
+(`instagram.com/p/<shortcode>/embed` in an iframe) — no login, no key, no token, though
+it looks like Instagram's chrome rather than the site's design.
 
 ## What's in here
 
@@ -145,6 +162,8 @@ assets/js/main.js          all interactions
 assets/img/hero/           4 rotating hero images
 assets/img/treks/          6 trek card images
 assets/img/gallery/        48 photos × 2 sizes
+assets/img/insta/          10 real Instagram post thumbnails
+assets/img/brand/          their logo (from the Instagram profile picture)
 assets/img/og.jpg          social share preview
 .nojekyll                  tells GitHub Pages to serve assets/ as-is
 ```
@@ -154,11 +173,11 @@ the initial load is a fraction of that.
 
 ## Features
 
-Preloader with a drawing ridge line · scroll progress bar · custom cursor · rotating
+Preloader with a drawing ridge line · scroll progress bar · rotating
 parallax hero · animated split headings · scroll reveals · counting stats · filterable
 trek cards with 3D tilt · **interactive SVG elevation profile of the Sandakphu ridge** ·
 dual review marquees · masonry gallery with a keyboard- and swipe-navigable lightbox ·
-Instagram wall · WhatsApp enquiry composer · embedded map · floating WhatsApp button.
+live-linked Instagram posts · WhatsApp enquiry composer · embedded map · floating WhatsApp button.
 
 Respects `prefers-reduced-motion`, keyboard accessible, no horizontal scroll at 320px,
 zero console errors, and no cookies or trackers of any kind.
