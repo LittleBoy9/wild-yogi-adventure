@@ -202,11 +202,11 @@
           '<p class="trek__region">' + esc(t.region) + '</p>' +
           '<p class="trek__hook">' + esc(t.hook) + '</p>' +
           '<dl class="trek__meta">' +
-            '<div class="trek__alt"><dt>Altitude</dt><dd>' + esc(t.altitudeLabel) + '</dd></div>' +
+            '<div class="trek__alt"><dt>' + (t.altitude ? 'Altitude' : 'Known for') + '</dt>' +
+              '<dd>' + esc(t.altitudeLabel) + '</dd></div>' +
             '<div><dt>Duration</dt><dd>' + esc(t.days) + '</dd></div>' +
-            '<div><dt>Grade</dt><dd>' + esc(t.grade) + '</dd></div>' +
           '</dl>' +
-          '<div class="trek__more">' +
+          '<div class="trek__more"><div>' +
             '<p class="trek__hook" style="margin-top:14px">' + esc(t.blurb) + '</p>' +
             '<ul class="trek__hi">' + hi + '</ul>' +
             '<p class="trek__route">' + route + '</p>' +
@@ -214,7 +214,7 @@
               'Request dates' +
               '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
             '</a>' +
-          '</div>' +
+          '</div></div>' +
         '</div>' +
       '</article>';
     }).join('');
