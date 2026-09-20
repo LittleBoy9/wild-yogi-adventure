@@ -1,0 +1,164 @@
+# Wild Yogi Adventures — landing page
+
+A static, single-page site for **Wild Yogi Adventures**, a trekking company based in
+Maheshtala, Kolkata. No framework, no build step, no dependencies — plain HTML, CSS
+and vanilla JS, ready to host on GitHub Pages.
+
+**Tagline:** *"Wander the wild, Awaken the yogi within."* — their own, taken from their
+printed expedition banners.
+
+---
+
+## Deploy to GitHub Pages
+
+```bash
+git init
+git add -A
+git commit -m "Wild Yogi Adventures landing page"
+git branch -M main
+git remote add origin https://github.com/<you>/<repo>.git
+git push -u origin main
+```
+
+Then: **Settings → Pages → Source: Deploy from a branch → `main` / `(root)` → Save.**
+
+The site goes live at `https://<you>.github.io/<repo>/` in a minute or two.
+
+Every path in the project is **relative**, so it works at any base path — a project
+page, a user page, or a custom domain — with no config change. `.nojekyll` is included
+so GitHub serves the `assets/` folder untouched.
+
+### Custom domain
+
+Their banners already print **`www.wildyogiadventures.com`** — but that domain does not
+currently resolve. If they own it, point it here and the printed banners start working:
+
+1. Create a `CNAME` file containing `www.wildyogiadventures.com`
+2. At the registrar, add a `CNAME` record for `www` → `<you>.github.io`
+3. Settings → Pages → Custom domain → enter it → tick **Enforce HTTPS**
+
+### Preview locally
+
+```bash
+python3 -m http.server 8777
+# http://localhost:8777
+```
+
+---
+
+## Where every fact on the page came from
+
+Nothing on this page is invented. Sources:
+
+| On the page | Source |
+|---|---|
+| Name, category, address, plus code | Google Business Profile |
+| **5.0 ★ / 105 reviews** | Google Business Profile, Sept 2026 |
+| Phone `82749 60430` | Google Business Profile |
+| Phones `62902 48082`, `89819 91997` | printed on their own summit banners |
+| Tagline, "est 2024" | printed on their own summit banners |
+| Sandakphu–Phalut **11,930 ft** | their Sandakphu banner |
+| Tunganath–Chandrasila **12,110 ft** | their Tunganath banner |
+| Rupin Pass **15,350 ft** | their Rupin Pass banner |
+| Bali Pass **16,200 ft** | their Bali Pass banner |
+| Yeti Stone Hike **7,545 ft** | their Yeti Stone banner |
+| Aal **11,570 ft** | their trail signage |
+| Review quotes | verbatim from public Google reviews |
+| Team names (Avrajit, Tikaram, Joy) | named repeatedly across the reviews |
+| Sandakphu waypoint order | the route as described in their own reviews |
+| All 58 photos | their own Google Business listing |
+
+"It is a trek, not a trip" is a phrase from one of their actual reviews.
+
+---
+
+## ⚠️ Please confirm before this goes public
+
+These are the only items **not** sourced directly from Wild Yogi, and the first thing
+to check with them:
+
+1. **Durations** (`6–7 days`, `8–9 days`, …) — conventional for these routes, not confirmed.
+2. **Seasons** (`Oct–Dec · Mar–May`, …) — conventional, not confirmed.
+3. **Difficulty gradings** (Beginner / Moderate / Challenging) — our reading, not theirs.
+4. **Route waypoint lists** on each trek card — standard published routes for Rupin,
+   Bali, Valley of Flowers and Tunganath. Only Sandakphu's comes from their own reviews.
+5. **Valley of Flowers** has no altitude, because no banner photo showed one.
+6. **Elevation figures** for Srikhola, Rammam, Samanden, Molley, Sabargram, Phalut and
+   Gurdum are published trail figures. Only Sandakphu and Aal come from their own signage.
+
+**There is no pricing anywhere on the site**, by design — every trek CTA opens WhatsApp
+asking for dates and cost, so nothing can be wrong in front of a customer.
+
+The logo mark is a **placeholder** drawn in SVG, loosely echoing their circular badge.
+Ask them for the real vector and swap it — it appears twice in `index.html` (`.mark`).
+
+---
+
+## Editing
+
+Almost everything is data-driven. To change content you only touch
+**`assets/js/data.js`**:
+
+| Want to change | Edit |
+|---|---|
+| Treks, altitudes, routes, blurbs | `WY.treks` |
+| Elevation profile waypoints | `WY.profile` |
+| Review quotes | `WY.reviews` |
+| Team members | `WY.team` |
+| "Why us" points | `WY.pillars` |
+| Phone / WhatsApp / Instagram / address | `WY.biz` |
+
+Adding a trek to `WY.treks` automatically adds it to the grid, the filter chips, the
+footer list, the ticker and the enquiry form's dropdown. Drop a matching image into
+`assets/img/treks/` and point `img` at it.
+
+### Adding photos
+
+Put `gNN.webp` (760px wide) and `gNN-lg.webp` (1450px wide) in `assets/img/gallery/`,
+then bump the `48` in the `WY.gallery` line of `data.js`.
+
+---
+
+## Instagram
+
+The photo wall under **@wildyogiadventures** is self-hosted and links to their profile.
+
+It is not a live feed, and that is deliberate. Instagram's Basic Display API was shut
+down in **December 2024**, and the Graph API needs a linked Facebook Business account
+plus a server to hold the token — neither of which a static GitHub Pages site can do
+without logging into an account. The alternatives are third-party scraper APIs, which
+cost money, expose a key in client-side code, break regularly and violate Instagram's
+terms of service.
+
+If they later want live posts, the clean route is official post embeds
+(`instagram.com/p/<shortcode>/embed` in an iframe) — no login, no key, no token.
+
+---
+
+## What's in here
+
+```
+index.html                 one page, all sections
+assets/css/style.css       all styling
+assets/js/data.js          ← all content lives here
+assets/js/main.js          all interactions
+assets/img/hero/           4 rotating hero images
+assets/img/treks/          6 trek card images
+assets/img/gallery/        48 photos × 2 sizes
+assets/img/og.jpg          social share preview
+.nojekyll                  tells GitHub Pages to serve assets/ as-is
+```
+
+Roughly 25 MB total, mostly photography. The gallery is lazy-loaded and paginated, so
+the initial load is a fraction of that.
+
+## Features
+
+Preloader with a drawing ridge line · scroll progress bar · custom cursor · rotating
+parallax hero · animated split headings · scroll reveals · counting stats · filterable
+trek cards with 3D tilt · **interactive SVG elevation profile of the Sandakphu ridge** ·
+dual review marquees · masonry gallery with a keyboard- and swipe-navigable lightbox ·
+Instagram wall · WhatsApp enquiry composer · embedded map · floating WhatsApp button.
+
+Respects `prefers-reduced-motion`, keyboard accessible, no horizontal scroll at 320px,
+zero console errors, and no cookies or trackers of any kind.

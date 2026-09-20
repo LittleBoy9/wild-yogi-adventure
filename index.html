@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wild Yogi Adventures — Himalayan Treks from Kolkata</title>
+<meta name="description" content="Wander the wild, awaken the yogi within. Sandakphu–Phalut, Tunganath–Chandrasila, Valley of Flowers, Rupin Pass and Bali Pass. 5.0★ from 105 Google reviews. Small groups, local guides, village homestays.">
+<meta name="theme-color" content="#0B0F0E">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wild Yogi Adventures — Himalayan Treks">
+<meta property="og:description" content="Wander the wild, awaken the yogi within. 5.0★ from 105 reviews. Sandakphu–Phalut, Rupin Pass, Bali Pass and more.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0F0E'/%3E%3Cpath d='M4 24 L12 11 L17 19 L21 14 L28 24 Z' fill='%23E8734A'/%3E%3Ccircle cx='21' cy='8' r='2.5' fill='%23F2C14E'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Wild Yogi Adventures",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Wild Yogi Adventures",
+    "image": "assets/img/og.jpg",
+    "telephone": "+916290248082",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "B2-7/New Sarkar Para Road, LP-62/3, Shyampur",
+      "addressLocality": "Maheshtala, Kolkata",
+      "addressRegion": "West Bengal",
+      "postalCode": "700137",
+      "addressCountry": "IN"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "105"
+    }
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- ============ PRELOADER ============ -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <svg class="preloader__ridge" viewBox="0 0 400 120" fill="none" aria-hidden="true">
+      <path class="ridge-path" d="M0 110 L58 52 L92 78 L140 24 L186 70 L228 40 L272 86 L318 46 L360 74 L400 110"
+            stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    </svg>
+    <div class="preloader__meta">
+      <span class="preloader__label">Gaining altitude</span>
+      <span class="preloader__pct" id="preloaderPct">0</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCROLL PROGRESS ============ -->
+<div class="scrollbar" aria-hidden="true"><i id="scrollbarFill"></i></div>
+
+<!-- ============ CUSTOM CURSOR ============ -->
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top" aria-label="Wild Yogi Adventures — home">
+    <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="32" cy="32" r="30" class="mark__ring"/>
+      <circle cx="32" cy="32" r="25.5" class="mark__ring2"/>
+      <path d="M13 44 L24 26 L31 37 L37 28 L51 44 Z" class="mark__peak"/>
+      <circle cx="41" cy="19" r="4" class="mark__sun"/>
+      <path d="M28 44 v-7 a4 4 0 0 1 8 0 v7" class="mark__yogi"/>
+    </svg>
+    <span class="nav__name">
+      <b>Wild Yogi</b>
+      <i>Adventures · est 2024</i>
+    </span>
+  </a>
+
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#treks">Treks</a>
+    <a href="#route">The Ridge</a>
+    <a href="#why">Why us</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#plan">Plan</a>
+  </nav>
+
+  <a class="nav__cta" href="#plan" data-cursor="grow">
+    <span>Plan a trek</span>
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+
+  <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <i></i><i></i>
+  </button>
+</header>
+
+<!-- ============ MOBILE MENU ============ -->
+<div class="menu" id="mobileMenu" hidden>
+  <nav class="menu__links" aria-label="Mobile">
+    <a href="#treks"><em>01</em> Treks</a>
+    <a href="#route"><em>02</em> The Ridge</a>
+    <a href="#why"><em>03</em> Why us</a>
+    <a href="#reviews"><em>04</em> Reviews</a>
+    <a href="#gallery"><em>05</em> Gallery</a>
+    <a href="#plan"><em>06</em> Plan a trek</a>
+  </nav>
+  <div class="menu__foot">
+    <a id="menuWa" href="#">WhatsApp</a>
+    <a href="https://www.instagram.com/wildyogiadventures/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero__media" id="heroMedia">
+    <div class="hero__slide is-active" style="background-image:url('assets/img/hero/hero-1.webp')"></div>
+    <div class="hero__slide" style="background-image:url('assets/img/hero/hero-2.webp')"></div>
+    <div class="hero__slide" style="background-image:url('assets/img/hero/hero-3.webp')"></div>
+    <div class="hero__slide" style="background-image:url('assets/img/hero/hero-4.webp')"></div>
+  </div>
+  <div class="hero__scrim"></div>
+  <div class="hero__grain" aria-hidden="true"></div>
+
+  <div class="hero__body">
+    <p class="hero__eyebrow reveal">
+      <span class="dot"></span> Kolkata · Himalaya · since 2024
+    </p>
+
+    <h1 class="hero__title">
+      <span class="line"><span class="w">Wander</span> <span class="w">the</span> <span class="w">wild.</span></span>
+      <span class="line line--alt"><span class="w">Awaken</span> <span class="w">the</span> <span class="w">yogi</span> <span class="w">within.</span></span>
+    </h1>
+
+    <p class="hero__sub reveal">
+      Himalayan treks run by people whose names you will remember —
+      because every trekker who writes about us uses them.
+    </p>
+
+    <div class="hero__actions reveal">
+      <a class="btn btn--primary" href="#treks" data-cursor="grow">
+        <span>See the treks</span>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn btn--ghost" id="heroWa" href="#" data-cursor="grow">
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="wa"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.95L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2m0 1.8a8.1 8.1 0 1 1-4.2 15.03l-.3-.18-3.07.88.9-3-.2-.31A8.1 8.1 0 0 1 12.04 3.8m-3.2 4.1c-.16 0-.42.06-.64.3s-.85.83-.85 2.02.87 2.34.99 2.5c.12.16 1.7 2.7 4.2 3.68 2.08.82 2.5.66 2.95.62.45-.04 1.45-.59 1.66-1.17.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28s-1.45-.72-1.67-.8c-.22-.08-.39-.12-.55.12s-.63.8-.77.96c-.14.16-.28.18-.52.06a6.65 6.65 0 0 1-1.96-1.21 7.4 7.4 0 0 1-1.36-1.69c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42s-.54-1.33-.75-1.82c-.2-.47-.4-.4-.55-.41z"/></svg>
+        <span>WhatsApp us</span>
+      </a>
+    </div>
+
+    <div class="hero__proof reveal">
+      <a class="rating" href="#reviews" data-cursor="grow">
+        <span class="rating__stars" aria-hidden="true">★★★★★</span>
+        <span class="rating__num"><b>5.0</b> <i>on Google</i></span>
+        <span class="rating__count"><b id="reviewCount">105</b> <i>reviews</i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero__rail">
+    <button class="hero__dot is-active" data-slide="0" aria-label="Hero image 1"></button>
+    <button class="hero__dot" data-slide="1" aria-label="Hero image 2"></button>
+    <button class="hero__dot" data-slide="2" aria-label="Hero image 3"></button>
+    <button class="hero__dot" data-slide="3" aria-label="Hero image 4"></button>
+  </div>
+
+  <a class="hero__scroll" href="#manifesto" aria-label="Scroll down">
+    <span class="hero__scrollline"><i></i></span>
+    <span>Scroll</span>
+  </a>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track" id="tickerTrack"></div>
+</div>
+
+<!-- ============ MANIFESTO ============ -->
+<section class="manifesto" id="manifesto">
+  <div class="wrap">
+    <p class="kicker reveal"><span class="kicker__no">01</span> The difference</p>
+    <blockquote class="manifesto__quote">
+      <span class="mark-open" aria-hidden="true">“</span>
+      <span class="manifesto__text" data-splitline>It is a trek, not a trip.</span>
+      <cite class="reveal">— a trekker, in their Google review. It is the best description of us we have read, so we are keeping it.</cite>
+    </blockquote>
+
+    <div class="manifesto__grid">
+      <p class="reveal">A trip is arranged around you. A trek asks something of you — and hands something back that you cannot buy at the end of it.</p>
+      <p class="reveal">We are a small outfit out of Maheshtala, Kolkata, started in 2024 by someone who had already walked most of these trails himself. We run six routes. We do not run more than we can lead properly.</p>
+      <p class="reveal">Most people who come to us have never trekked before. That is the point. <b>Our job is to get a first-timer onto a ridge at 11,930 feet and back down again, safely, with the mountain still in them.</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="wrap stats__grid">
+    <div class="stat reveal"><b class="count" data-to="5" data-dec="1">0</b><span>Google rating</span></div>
+    <div class="stat reveal"><b class="count" data-to="105">0</b><span>Reviews, all real</span></div>
+    <div class="stat reveal"><b class="count" data-to="16200" data-comma="1">0</b><span>Highest pass, ft</span></div>
+    <div class="stat reveal"><b class="count" data-to="6">0</b><span>Routes we lead</span></div>
+  </div>
+</section>
+
+<!-- ============ TREKS ============ -->
+<section class="treks" id="treks">
+  <div class="wrap">
+    <header class="sechead">
+      <p class="kicker reveal"><span class="kicker__no">02</span> The treks</p>
+      <h2 class="sectitle" data-splitline>Six routes. Pick your altitude.</h2>
+      <p class="secsub reveal">Every altitude below is the figure Wild Yogi prints on its own summit banner.</p>
+    </header>
+
+    <div class="filters reveal" role="tablist" aria-label="Filter treks by difficulty">
+      <button class="chip is-on" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="chip" data-filter="Easy" role="tab" aria-selected="false">Easy</button>
+      <button class="chip" data-filter="Beginner" role="tab" aria-selected="false">Beginner</button>
+      <button class="chip" data-filter="Moderate" role="tab" aria-selected="false">Moderate</button>
+      <button class="chip" data-filter="Challenging" role="tab" aria-selected="false">Challenging</button>
+    </div>
+
+    <div class="trekgrid" id="trekGrid"></div>
+  </div>
+</section>
+
+<!-- ============ ROUTE / ELEVATION ============ -->
+<section class="route" id="route">
+  <div class="wrap">
+    <header class="sechead">
+      <p class="kicker reveal"><span class="kicker__no">03</span> Inside the flagship</p>
+      <h2 class="sectitle" data-splitline>Sandakphu — Phalut, foot by foot.</h2>
+      <p class="secsub reveal">The Singalila ridge as your legs will actually feel it. Tap any point on the line.</p>
+    </header>
+
+    <div class="profile" id="profile">
+      <svg class="profile__svg" id="profileSvg" viewBox="0 0 1000 340" preserveAspectRatio="none" role="img" aria-label="Elevation profile of the Sandakphu to Phalut trek">
+        <defs>
+          <linearGradient id="fillGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="var(--ember)" stop-opacity=".45"/>
+            <stop offset="100%" stop-color="var(--ember)" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="strokeGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%"   stop-color="var(--glacier)"/>
+            <stop offset="55%"  stop-color="var(--ember)"/>
+            <stop offset="100%" stop-color="var(--sun)"/>
+          </linearGradient>
+        </defs>
+        <g class="profile__grid" id="profileGrid"></g>
+        <path class="profile__fill" id="profileFill" fill="url(#fillGrad)"></path>
+        <path class="profile__line" id="profileLine" fill="none" stroke="url(#strokeGrad)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></path>
+      </svg>
+      <div class="profile__pts" id="profilePts"></div>
+      <div class="profile__axis" id="profileAxis"></div>
+    </div>
+
+    <div class="route__detail" id="routeDetail" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="why" id="why">
+  <div class="wrap">
+    <header class="sechead">
+      <p class="kicker reveal"><span class="kicker__no">04</span> Why Wild Yogi</p>
+      <h2 class="sectitle" data-splitline>Six things the reviews keep saying.</h2>
+      <p class="secsub reveal">We did not write these claims. We read 105 reviews and counted what came up.</p>
+    </header>
+    <div class="whygrid" id="whyGrid"></div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section class="team">
+  <div class="wrap">
+    <h2 class="team__title" data-splitline>The people trekkers name.</h2>
+    <div class="teamgrid" id="teamGrid"></div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <header class="sechead">
+      <p class="kicker reveal"><span class="kicker__no">05</span> Reviews</p>
+      <h2 class="sectitle" data-splitline>Still a perfect 5.0 after 105 reviews.</h2>
+      <p class="secsub reveal">Pulled from the public Google listing. Long ones are trimmed, never reworded.</p>
+    </header>
+  </div>
+
+  <div class="revrow" id="revRow1"><div class="revrow__track"></div></div>
+  <div class="revrow revrow--rev" id="revRow2"><div class="revrow__track"></div></div>
+
+  <div class="wrap reviews__cta">
+    <a class="btn btn--ghost" id="allReviews" href="#" target="_blank" rel="noopener" data-cursor="grow">
+      <span>Read all 105 on Google</span>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <header class="sechead">
+      <p class="kicker reveal"><span class="kicker__no">06</span> From the trail</p>
+      <h2 class="sectitle" data-splitline>Every photo here is theirs.</h2>
+      <p class="secsub reveal">Shot by Wild Yogi trekkers and leaders. No stock, no filters, no borrowed mountains.</p>
+    </header>
+    <div class="masonry" id="masonry"></div>
+    <div class="gallery__more">
+      <button class="btn btn--ghost" id="galMore" data-cursor="grow"><span>Show more</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTAGRAM ============ -->
+<section class="insta" id="insta">
+  <div class="wrap insta__head">
+    <div>
+      <p class="kicker reveal"><span class="kicker__no">07</span> Instagram</p>
+      <h2 class="sectitle" data-splitline>@wildyogiadventures</h2>
+    </div>
+    <a class="btn btn--primary" href="https://www.instagram.com/wildyogiadventures/" target="_blank" rel="noopener" data-cursor="grow">
+      <span>Follow</span>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <div class="instarow" id="instaRow"></div>
+</section>
+
+<!-- ============ PLAN ============ -->
+<section class="plan" id="plan">
+  <div class="wrap plan__inner">
+    <div class="plan__copy">
+      <p class="kicker reveal"><span class="kicker__no">08</span> Plan your trek</p>
+      <h2 class="sectitle" data-splitline>Tell us where you want to stand.</h2>
+      <p class="secsub reveal">
+        Pick a route and we will send you dates, cost and a kit list on WhatsApp.
+        No deposit to ask a question.
+      </p>
+
+      <ul class="plan__facts">
+        <li class="reveal"><b>Where we are</b><span>Maheshtala, Kolkata 700137</span></li>
+        <li class="reveal"><b>Call</b><span id="planPhones"></span></li>
+        <li class="reveal"><b>Instagram</b><span><a href="https://www.instagram.com/wildyogiadventures/" target="_blank" rel="noopener">@wildyogiadventures</a></span></li>
+      </ul>
+    </div>
+
+    <form class="plan__form" id="planForm" novalidate>
+      <p class="plan__formnote">This opens WhatsApp with your message ready — nothing is stored on this site.</p>
+
+      <label class="field">
+        <span>Your name</span>
+        <input type="text" id="fName" autocomplete="name" placeholder="Avrajit Sarkar" required>
+      </label>
+
+      <label class="field">
+        <span>Which trek</span>
+        <select id="fTrek"></select>
+      </label>
+
+      <div class="field-row">
+        <label class="field">
+          <span>Roughly when</span>
+          <input type="month" id="fWhen">
+        </label>
+        <label class="field">
+          <span>How many of you</span>
+          <input type="number" id="fPax" min="1" max="30" value="2">
+        </label>
+      </div>
+
+      <label class="field">
+        <span>Trekked before?</span>
+        <select id="fExp">
+          <option value="This would be my first trek">This would be my first trek</option>
+          <option value="I have done one or two">I have done one or two</option>
+          <option value="I trek regularly">I trek regularly</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Anything else <i>(optional)</i></span>
+        <textarea id="fNote" rows="3" placeholder="Questions about fitness, kit, cost…"></textarea>
+      </label>
+
+      <button class="btn btn--primary btn--full" type="submit" data-cursor="grow">
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="wa"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.95L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2m0 1.8a8.1 8.1 0 1 1-4.2 15.03l-.3-.18-3.07.88.9-3-.2-.31A8.1 8.1 0 0 1 12.04 3.8m-3.2 4.1c-.16 0-.42.06-.64.3s-.85.83-.85 2.02.87 2.34.99 2.5c.12.16 1.7 2.7 4.2 3.68 2.08.82 2.5.66 2.95.62.45-.04 1.45-.59 1.66-1.17.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28s-1.45-.72-1.67-.8c-.22-.08-.39-.12-.55.12s-.63.8-.77.96c-.14.16-.28.18-.52.06a6.65 6.65 0 0 1-1.96-1.21 7.4 7.4 0 0 1-1.36-1.69c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42s-.54-1.33-.75-1.82c-.2-.47-.4-.4-.55-.41z"/></svg>
+        <span>Send on WhatsApp</span>
+      </button>
+    </form>
+  </div>
+
+  <div class="wrap">
+    <div class="mapwrap reveal">
+      <iframe
+        title="Wild Yogi Adventures on Google Maps"
+        src="https://www.google.com/maps?q=22.488331,88.199396&hl=en&z=15&output=embed"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <div class="foot__brand">
+      <svg class="mark mark--lg" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" class="mark__ring"/>
+        <circle cx="32" cy="32" r="25.5" class="mark__ring2"/>
+        <path d="M13 44 L24 26 L31 37 L37 28 L51 44 Z" class="mark__peak"/>
+        <circle cx="41" cy="19" r="4" class="mark__sun"/>
+        <path d="M28 44 v-7 a4 4 0 0 1 8 0 v7" class="mark__yogi"/>
+      </svg>
+      <p class="foot__tag">Wander the wild,<br>awaken the yogi within.</p>
+    </div>
+
+    <div class="foot__col">
+      <h3>Treks</h3>
+      <ul id="footTreks"></ul>
+    </div>
+
+    <div class="foot__col">
+      <h3>Reach us</h3>
+      <ul>
+        <li><a id="footWa" href="#">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/wildyogiadventures/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://maps.app.goo.gl/qNzCMdNEMS4wuCFGA" target="_blank" rel="noopener">Google Maps</a></li>
+      </ul>
+    </div>
+
+    <div class="foot__col">
+      <h3>Office</h3>
+      <p class="foot__addr">B2-7/New Sarkar Para Road, LP-62/3,<br>Shyampur, Maheshtala,<br>Kolkata, West Bengal 700137</p>
+    </div>
+  </div>
+
+  <div class="wrap foot__base">
+    <span>© <span id="year"></span> Wild Yogi Adventures · est 2024</span>
+    <span class="foot__rating">★ 5.0 · 105 Google reviews</span>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a class="fab" id="fab" href="#" aria-label="Chat on WhatsApp" data-cursor="grow">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.95L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2m0 1.8a8.1 8.1 0 1 1-4.2 15.03l-.3-.18-3.07.88.9-3-.2-.31A8.1 8.1 0 0 1 12.04 3.8m-3.2 4.1c-.16 0-.42.06-.64.3s-.85.83-.85 2.02.87 2.34.99 2.5c.12.16 1.7 2.7 4.2 3.68 2.08.82 2.5.66 2.95.62.45-.04 1.45-.59 1.66-1.17.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28s-1.45-.72-1.67-.8c-.22-.08-.39-.12-.55.12s-.63.8-.77.96c-.14.16-.28.18-.52.06a6.65 6.65 0 0 1-1.96-1.21 7.4 7.4 0 0 1-1.36-1.69c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42s-.54-1.33-.75-1.82c-.2-.47-.4-.4-.55-.41z"/></svg>
+  <span class="fab__label">Ask about a trek</span>
+</a>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox__close" id="lbClose" aria-label="Close">✕</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous">‹</button>
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next">›</button>
+  <figure class="lightbox__fig"><img id="lbImg" alt=""></figure>
+  <div class="lightbox__count" id="lbCount"></div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
