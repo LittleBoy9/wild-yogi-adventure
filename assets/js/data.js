@@ -47,7 +47,7 @@ WY.treks = [
     hook: 'Four of the five highest peaks on earth from one ridge.',
     blurb: 'The walk along the Singalila ridge that puts Everest, Kanchenjunga, Lhotse and Makalu in a single frame. Most of our trekkers do this as their first-ever trek — and finish it.',
     highlights: ['Sleeping Buddha at sunrise', 'Singalila National Park', 'Village homestays', 'Rhododendron forest in spring'],
-    route: ['Srikhola', 'Rammam', 'Samanden', 'Molley', 'Sabargram', 'Phalut', 'Aal', 'Sandakphu', 'Gurdum']
+    route: ['Srikhola', 'Rammam', 'Samanden', 'Sabargram', 'Phalut', 'Aal', 'Sandakphu', 'Gurdum']
   },
   {
     id: 'tunganath',
@@ -68,16 +68,16 @@ WY.treks = [
     id: 'valley-of-flowers',
     name: 'Valley of Flowers',
     region: 'Uttarakhand · with Hemkund Sahib',
-    altitude: null,
-    altitudeLabel: 'Monsoon bloom',
-    days: '6–7 days',
-    grade: 'Easy–Moderate',
+    altitude: 14200,
+    altitudeLabel: '14,200 ft',
+    days: '6 days / 5 nights',
+    grade: 'Moderate',
     season: 'Jul–Sep',
     img: 'assets/img/treks/valley-of-flowers.webp',
     hook: 'A UNESCO valley that only exists for ten weeks a year.',
-    blurb: 'Hundreds of alpine species open at once across a hanging valley above the Pushpawati. Pair it with the climb to Hemkund Sahib for the contrast of flowers and glacial lake.',
-    highlights: ['UNESCO World Heritage site', 'Hemkund Sahib option', 'Peak monsoon bloom', 'Good for solo travellers'],
-    route: ['Govindghat', 'Ghangaria', 'Valley of Flowers', 'Hemkund Sahib']
+    blurb: 'Hundreds of alpine species open at once across a hanging valley above the Pushpawati, then the climb to Hemkund Sahib at 14,200 ft for the contrast of flowers and glacial lake. Starts and ends at Rishikesh.',
+    highlights: ['Valley of Flowers National Park', 'Hemkund Sahib Gurudwara', 'Scenic trails and waterfalls', 'Starts and ends at Rishikesh'],
+    route: ['Rishikesh', 'Govindghat', 'Ghangaria', 'Valley of Flowers', 'Hemkund Sahib']
   },
   {
     id: 'rupin-pass',
@@ -110,19 +110,49 @@ WY.treks = [
     route: ['Sankri', 'Seema', 'Ruinsara Tal', 'Odari', 'Bali Pass', 'Yamunotri']
   },
   {
+    id: 'har-ki-dun',
+    name: 'Har Ki Dun',
+    region: 'Uttarakhand · with Marinda Tal',
+    altitude: 13025,
+    altitudeLabel: '13,025 ft',
+    days: '7–8 days',
+    grade: 'Moderate',
+    season: 'Mar–Jun · Sep–Dec',
+    img: 'assets/img/treks/har-ki-dun.webp',
+    hook: 'The valley of gods, and one of the oldest trails in the Himalaya.',
+    blurb: 'A wide glacial valley walled by Swargarohini, reached through villages that have kept their own architecture and their own gods for centuries. Paired with the quiet lake at Marinda Tal.',
+    highlights: ['Swargarohini head-on', 'Ancient Himalayan villages', 'Marinda Tal', 'Runs almost all year'],
+    route: ['Sankri', 'Taluka', 'Osla', 'Har Ki Dun', 'Marinda Tal']
+  },
+  {
+    id: 'hampta-pass',
+    name: 'Hampta Pass',
+    region: 'Himachal · with Chandra Tal',
+    altitude: 14100,
+    altitudeLabel: '14,100 ft',
+    days: '5–6 days',
+    grade: 'Moderate',
+    season: 'Jun–Sep',
+    img: 'assets/img/treks/hampta-pass.webp',
+    hook: 'Green Kullu on one side, the bare moonscape of Lahaul on the other.',
+    blurb: 'One of the most dramatic crossings in the country: you walk out of pine forest and flower meadows, over the pass, and down into a brown desert valley. Finished at the blue of Chandra Tal.',
+    highlights: ['Kullu to Lahaul crossing', 'Chandra Tal lake', 'Landscape flips in a single day', 'Camping under the stars'],
+    route: ['Manali', 'Jobra', 'Chika', 'Balu Ka Ghera', 'Hampta Pass', 'Chatru', 'Chandra Tal']
+  },
+  {
     id: 'yeti-stone',
     name: 'Yeti Stone Hike',
-    region: 'Darjeeling hills',
+    region: 'Darjeeling hills · NJP to NJP',
     altitude: 7545,
     altitudeLabel: '7,545 ft',
-    days: '2–3 days',
+    days: '4 days / 3 nights',
     grade: 'Easy',
     season: 'All year',
     img: 'assets/img/treks/samanden.webp',
-    hook: 'A weekend in the forest, for people who are not sure yet.',
-    blurb: 'Short, green and low. Moss forest, prayer-flag bridges and a quiet ridge — the trip we send people on when they want to find out whether trekking is for them.',
-    highlights: ['Weekend-sized', 'No altitude worries', 'Forest and river', 'Family friendly'],
-    route: ['Darjeeling hills', 'Forest trail', 'Yeti Stone']
+    hook: 'Step into the legend. Find the footprints of the Yeti.',
+    blurb: 'Short, green and low. Dense forest, prayer-flag bridges and the mysterious Yeti Stone itself — the trip we send people on when they want to find out whether trekking is for them.',
+    highlights: ['The mysterious Yeti Stone', 'Dense forest and scenic trails', 'No altitude worries', 'Picked up and dropped at NJP'],
+    route: ['NJP', 'Darjeeling hills', 'Yeti Stone', 'NJP']
   }
 ];
 
@@ -135,8 +165,7 @@ WY.profile = [
   { name: 'Srikhola',  ft: 6900,  note: 'Trailhead. River, bridge, last shop.' },
   { name: 'Rammam',    ft: 8300,  note: 'First climb through the forest.' },
   { name: 'Samanden',  ft: 7350,  note: 'Hidden village. No road reaches it.' },
-  { name: 'Molley',    ft: 11480, note: 'Onto the ridge. Air gets thin.' },
-  { name: 'Sabargram', ft: 11600, note: 'Open ridgeline walking.' },
+  { name: 'Sabargram', ft: 11600, note: 'Onto the ridge. Air gets thin.' },
   { name: 'Phalut',    ft: 11811, note: 'Kanchenjunga close enough to touch.' },
   { name: 'Aal',       ft: 11570, note: 'The long traverse.' },
   { name: 'Sandakphu', ft: 11930, note: 'Highest point in West Bengal.' },

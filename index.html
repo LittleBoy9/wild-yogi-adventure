@@ -21,6 +21,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 
+<script>
+/* Set the theme before first paint so there is no flash of the wrong one. */
+(function(){try{var t=localStorage.getItem("wy-theme");
+if(!t)t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";
+document.documentElement.setAttribute("data-theme",t);
+document.documentElement.style.colorScheme=t;}catch(e){}})();
+</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -87,6 +95,8 @@
     <a href="#plan">Plan</a>
   </nav>
 
+  <button class="themer" id="themer" type="button" aria-label="Switch theme"><svg class="i-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.6v2.2M12 19.2v2.2M21.4 12h-2.2M4.8 12H2.6M18.6 5.4l-1.6 1.6M7 17l-1.6 1.6M18.6 18.6L17 17M7 7 5.4 5.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
+
   <a class="nav__cta" href="#plan">
     <span>Plan a trek</span>
     <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -111,6 +121,7 @@
     <a id="menuWa" href="#">WhatsApp</a>
     <a href="https://www.instagram.com/wildyogiadventures/" target="_blank" rel="noopener">Instagram</a>
   </div>
+  <button class="menu__theme" id="themerMobile" type="button"><svg class="i-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.6v2.2M12 19.2v2.2M21.4 12h-2.2M4.8 12H2.6M18.6 5.4l-1.6 1.6M7 17l-1.6 1.6M18.6 18.6L17 17M7 7 5.4 5.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="themer__txt">Theme</span></button>
 </div>
 
 <main id="top">

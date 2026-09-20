@@ -691,3 +691,111 @@ section{ padding-block:clamp(72px,11vw,148px); position:relative; }
   .lightbox__nav{ width:42px; height:42px; font-size:24px; }
   .lightbox__nav--prev{ left:10px } .lightbox__nav--next{ right:10px }
 }
+
+/* ==========================================================================
+   LIGHT THEME
+   Dark is the default. Light is applied via [data-theme="light"] on <html>,
+   set before first paint by the inline script in index.html.
+
+   The hero, the trek cards and the lightbox sit on top of photographs, so they
+   keep light-on-dark text in BOTH themes. That is done by redefining the same
+   tokens locally for those regions rather than rewriting every rule.
+   ========================================================================== */
+:root[data-theme="light"]{
+  --ink:        #FBF8F1;
+  --ink-1:      #F4EFE4;
+  --ink-2:      #EDE7D9;
+  --ink-3:      #E4DECC;
+  --line:       rgba(26,20,16,.12);
+  --line-2:     rgba(26,20,16,.22);
+
+  --paper:      #1A1410;
+  --paper-dim:  rgba(26,20,16,.74);
+  --paper-mute: rgba(26,20,16,.60);
+
+  /* brand hue held at ~20deg; darkened until it clears AA on both the page
+     background (5.53:1) and the alternating section background (5.12:1) */
+  --ember:      #A84717;
+  --ember-hot:  #8F3B12;
+  --ember-soft: rgba(168,71,23,.10);
+  --rust:       #6E2A0E;
+  --crimson:    #96301A;
+  --sun:        #8A6208;
+  --glacier:    #3B6879;
+}
+
+/* --- regions that sit over photography keep the dark-theme ink --- */
+:root[data-theme="light"] .hero,
+:root[data-theme="light"] .trek__body,
+:root[data-theme="light"] .lightbox,
+:root[data-theme="light"] .nav:not(.is-stuck){
+  /* `color` must be re-declared here, not just the token: `body { color:
+     var(--paper) }` resolves once at body, so anything inheriting its colour
+     would otherwise stay dark over the photograph. */
+  color:var(--paper);
+  --paper:      #F2EDE0;
+  --paper-dim:  rgba(242,237,224,.78);
+  --paper-mute: rgba(242,237,224,.64);
+  --line:       rgba(242,237,224,.12);
+  --line-2:     rgba(242,237,224,.26);
+  --ember:      #E37A45;
+  --ember-hot:  #F08C55;
+  --sun:        #F0B94E;
+}
+/* the nav CTA inverts, so it needs explicit values while over the hero */
+:root[data-theme="light"] .nav:not(.is-stuck) .nav__cta{ background:#F2EDE0; color:#100D0A; }
+:root[data-theme="light"] .nav.is-stuck{ background:rgba(251,248,241,.88); }
+
+/* light text on the darkened ember in light mode */
+:root[data-theme="light"] .btn--primary{ color:#FFF7F0; }
+:root[data-theme="light"] .hero .btn--primary{ color:#1B0F07; }
+:root[data-theme="light"] .tag--flag{ color:#1B0F07; }
+:root[data-theme="light"] .rev__av{ color:#FFF7F0; }
+:root[data-theme="light"] .fab{ color:#062B14; }
+
+/* the map is inverted for the dark theme; undo that in light */
+:root[data-theme="light"] .mapwrap iframe{ filter:grayscale(.18) contrast(1.02); }
+
+/* the warm bloom is tuned for a dark ground; soften it on light */
+:root[data-theme="light"] .manifesto::before,
+:root[data-theme="light"] .treks::before,
+:root[data-theme="light"] .why::before{
+  background:radial-gradient(70% 45% at 12% 0%, rgba(168,71,23,.05), transparent 70%);
+}
+:root[data-theme="light"] .hero__grain{ opacity:.10; }
+:root[data-theme="light"] .gitem img,
+:root[data-theme="light"] .icell img{ filter:saturate(.98) brightness(1); }
+
+/* --- theme toggle ------------------------------------------------------- */
+.themer{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:40px; height:40px; flex:none; padding:0; cursor:pointer;
+  border:1px solid var(--line-2); border-radius:50%; background:transparent;
+  color:var(--paper); transition:border-color .3s, background .3s, transform .4s var(--ease);
+}
+.themer:hover{ border-color:var(--ember); background:var(--ember-soft); transform:rotate(-15deg); }
+.themer svg{ width:17px; height:17px; }
+.themer .i-sun{ display:none; }
+:root[data-theme="light"] .themer .i-sun{ display:block; }
+:root[data-theme="light"] .themer .i-moon{ display:none; }
+@media (max-width:980px){ .nav .themer{ display:none; } }
+
+.menu__theme{
+  display:inline-flex; align-items:center; gap:9px; cursor:pointer;
+  padding:10px 16px; border-radius:100px; background:transparent;
+  border:1px solid var(--line-2); color:var(--paper);
+  font-family:var(--sans); font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+}
+.menu__theme svg{ width:15px; height:15px; }
+.menu__theme .i-sun{ display:none; }
+:root[data-theme="light"] .menu__theme .i-sun{ display:block; }
+:root[data-theme="light"] .menu__theme .i-moon{ display:none; }
+
+/* colour changes should feel deliberate, not flash */
+body,.nav,.stats__grid,.pill,.person,.rev,.plan__form,.field input,.field select,
+.field textarea,.trek,.foot,.route__detail,.whygrid,.chip,.btn{
+  transition:background-color .45s var(--ease), color .45s var(--ease), border-color .45s var(--ease);
+}
+@media (prefers-reduced-motion:reduce){
+  body,.nav,.stats__grid,.pill,.person,.rev,.plan__form,.trek,.foot{ transition:none; }
+}

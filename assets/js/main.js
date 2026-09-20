@@ -43,6 +43,48 @@
   window.addEventListener('load', finish);
   setTimeout(finish, 4200); // never trap the page behind a slow image
 
+
+  /* ------------------------------------------------------------------ theme
+     The initial value is set by the inline script in <head> before paint.
+     Here we only handle switching, persistence, and following the OS while
+     the visitor has not made an explicit choice. */
+  const root = document.documentElement;
+
+  function applyTheme(t, remember) {
+    root.setAttribute('data-theme', t);
+    root.style.colorScheme = t;
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', t === 'light' ? '#FBF8F1' : '#100D0A');
+    [$('#themer'), $('#themerMobile')].forEach(b => {
+      if (!b) return;
+      const next = t === 'light' ? 'dark' : 'light';
+      b.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+      b.setAttribute('title', 'Switch to ' + next + ' theme');
+      const txt = $('.themer__txt', b);
+      if (txt) txt.textContent = t === 'light' ? 'Dark mode' : 'Light mode';
+    });
+    if (remember) { try { localStorage.setItem('wy-theme', t); } catch (e) {} }
+  }
+
+  function currentTheme() { return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark'; }
+
+  applyTheme(currentTheme(), false);
+
+  [$('#themer'), $('#themerMobile')].forEach(b => {
+    b && b.addEventListener('click', () => {
+      applyTheme(currentTheme() === 'light' ? 'dark' : 'light', true);
+    });
+  });
+
+  // follow the OS only while the visitor has not chosen for themselves
+  const mq = window.matchMedia('(prefers-color-scheme: light)');
+  const onOS = e => {
+    let saved = null;
+    try { saved = localStorage.getItem('wy-theme'); } catch (err) {}
+    if (!saved) applyTheme(e.matches ? 'light' : 'dark', false);
+  };
+  mq.addEventListener ? mq.addEventListener('change', onOS) : mq.addListener(onOS);
+
   /* ------------------------------------------------------------ whatsapp cta */
   const baseMsg = 'Hi Wild Yogi Adventures! I found you online and I would like to know about your upcoming treks.';
   ['#heroWa', '#fab', '#menuWa', '#footWa'].forEach(sel => {

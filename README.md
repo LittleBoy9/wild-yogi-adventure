@@ -69,6 +69,10 @@ Nothing on this page is invented. Sources:
 | All 58 trek photos | their own Google Business listing |
 | Logo | their Instagram profile picture |
 | 10 Instagram posts | their public Instagram profile |
+| Har Ki Dun **13,025 ft** | their "Trek Plans 2026" Instagram post |
+| Hampta Pass **14,100 ft** | their Hampta Pass summit banner |
+| Valley of Flowers **14,200 ft**, 6D/5N, Moderate, Rishikesh | their Valley of Flowers post |
+| Yeti Stone Hike **7,545 ft**, 4D/3N, Easy, NJP–NJP | their Yeti Stone Hike post |
 
 "It is a trek, not a trip" is a phrase from one of their actual reviews.
 
@@ -79,18 +83,23 @@ Nothing on this page is invented. Sources:
 These are the only items **not** sourced directly from Wild Yogi, and the first thing
 to check with them:
 
-1. **Durations** (`6–7 days`, `8–9 days`, …) — conventional for these routes, not confirmed.
+1. **Durations** — conventional for these routes and NOT confirmed, except
+   **Valley of Flowers (6 days / 5 nights)** and **Yeti Stone Hike (4 days / 3 nights)**,
+   which are taken from their own Instagram posts.
 2. **Seasons** (`Oct–Dec · Mar–May`, …) — conventional, not confirmed.
-3. **Difficulty gradings** (Beginner / Moderate / Challenging) — our reading, not theirs.
+3. **Difficulty gradings** — our reading, except **Valley of Flowers (Moderate)** and
+   **Yeti Stone Hike (Easy)**, which are their own stated difficulty.
 4. **Route waypoint lists** on each trek card — standard published routes for Rupin,
    Bali, Valley of Flowers and Tunganath. Only Sandakphu's comes from their own reviews.
 5. **Valley of Flowers** has no altitude, because no banner photo showed one.
-6. **They run more treks than this page lists.** Their Instagram shows
-   **Kedarnath**, **Hampta Pass** and **Har Ki Dun with Marinda Tal (13,025 ft)** on a
-   "Trek Plans 2026" post. Those are not on here because there was no reliable photo or
-   route detail to build a card from — ask them which routes they actually want featured.
+6. **Kedarnath is missing, deliberately.** They actively promote it (their Instagram
+   post advertises it "starts from 9999/-"), but there is no usable photograph: none of
+   the 245 photos on their Google listing show Kedarnath, and their Instagram graphic has
+   promo text top and bottom, leaving a clean band only ~308px tall. Cropping that to the
+   card's 3:4 shape would upscale a 231px-wide image to 900px and look obviously soft next
+   to the others. **Send one good Kedarnath photo and it is a two-minute addition.**
    For this reason no hard count of routes appears anywhere on the page.
-7. **Elevation figures** for Srikhola, Rammam, Samanden, Molley, Sabargram, Phalut and
+7. **Elevation figures** for Srikhola, Rammam, Samanden, Sabargram, Phalut and
    Gurdum are published trail figures. Only Sandakphu and Aal come from their own signage.
 
 **There is no pricing anywhere on the site**, by design — every trek CTA opens WhatsApp
@@ -178,6 +187,18 @@ parallax hero · animated split headings · scroll reveals · counting stats · 
 trek cards with 3D tilt · **interactive SVG elevation profile of the Sandakphu ridge** ·
 dual review marquees · masonry gallery with a keyboard- and swipe-navigable lightbox ·
 live-linked Instagram posts · WhatsApp enquiry composer · embedded map · floating WhatsApp button.
+
+**Dark and light themes.** Dark is the default. The toggle sits in the nav (and in the
+mobile menu); the choice is remembered in `localStorage`, and until someone chooses, the
+site follows the operating system setting. An inline script in `<head>` sets the theme
+before first paint so there is no flash of the wrong one.
+
+The hero, the trek cards and the lightbox sit on top of photographs, so they keep
+light-on-dark text in **both** themes — done by redefining the colour tokens locally for
+those regions rather than rewriting every rule.
+
+Every text style was measured against its actual rendered background:
+**dark theme worst case 5.92:1, light theme worst case 4.56:1** — both clear WCAG AA.
 
 Respects `prefers-reduced-motion`, keyboard accessible, no horizontal scroll at 320px,
 zero console errors, and no cookies or trackers of any kind.
