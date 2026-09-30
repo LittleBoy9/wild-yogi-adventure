@@ -79,11 +79,21 @@
      and a centred figure lands directly behind the headline. Ultra-wide
      panoramas were rejected too: cropping 2000x896 to a phone's shape upscales
      it ~1.9x and goes soft. */
-  const heroShots = ['assets/img/hero/v1-1.webp','assets/img/hero/v1-2.webp',
-                     'assets/img/hero/v1-3.webp','assets/img/hero/v1-4.webp'];
+  /* `pos` is the focal point. The hero is full-bleed, so on a phone it crops to
+     a tall centre slice — which pushed the hiker in v1-2 almost out of frame.
+     On desktop the container is wider than these images are, so cover scales by
+     width and the horizontal value has no effect there; it only steers the
+     phone crop. */
+  const heroShots = [
+    { src:'assets/img/hero/v1-1.webp', pos:'50% 50%' },
+    { src:'assets/img/hero/v1-2.webp', pos:'62% 50%' },
+    { src:'assets/img/hero/v1-3.webp', pos:'50% 50%' },
+    { src:'assets/img/hero/v1-4.webp', pos:'56% 50%' }
+  ];
   const bg = $('#heroBg'), dots = $('#heroDots');
   bg.innerHTML = heroShots.map((s,i) =>
-    '<div class="' + (i===0?'on':'') + '" style="background-image:url(\'' + s + '\')"></div>').join('');
+    '<div class="' + (i===0?'on':'') + '" style="background-image:url(\'' + s.src +
+    '\');background-position:' + s.pos + '"></div>').join('');
   dots.innerHTML = heroShots.map((_,i) =>
     '<button type="button" class="' + (i===0?'on':'') + '" aria-label="Image ' + (i+1) + '"></button>').join('');
   let hi = 0, htimer;
