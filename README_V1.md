@@ -19,18 +19,22 @@ be deployed together.
 
 ---
 
-## Before you deploy — 1 thing
+## Where this lives once deployed
 
-In `index_v1.html`, find-and-replace:
+GitHub Pages publishes every file in the repo, but always serves `index.html` at the
+root. That is fixed and cannot be changed in Settings. So:
 
-```
-https://YOURNAME.github.io/wild-yogi-adventure
-```
+| URL | Page |
+|---|---|
+| https://littleboy9.github.io/wild-yogi-adventure/ | the live page (`index.html`) |
+| https://littleboy9.github.io/wild-yogi-adventure/index_v1.html | **this page** — the link to send the client |
 
-with the real address, no trailing slash. Same reason as the live page: `og:image` must
-be absolute or WhatsApp shows the link with no preview image.
+`og:image` is already absolute and pointing at that host, so WhatsApp previews work.
+If the site moves to a custom domain, update the 3 tags in this file's `<head>`.
 
-Then it is reachable at `…/index_v1.html`, alongside the live page at `/`.
+If you would rather have a tidier link for the client, move this to `v1/index.html` and
+it becomes `https://littleboy9.github.io/wild-yogi-adventure/v1/`, which reads better in a
+message. Nothing in the page needs changing — every path is relative.
 
 ---
 

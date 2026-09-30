@@ -9,23 +9,23 @@ printed expedition banners.
 
 ---
 
-## Before you push — 1 thing
+## Share previews — already done ✅
 
-Open `index.html` and find-and-replace this placeholder:
+`og:image` is absolute and points at the live host:
 
 ```
-https://YOURNAME.github.io/wild-yogi-adventure
+https://littleboy9.github.io/wild-yogi-adventure/assets/img/og.jpg
 ```
 
-with the real address, no trailing slash. It appears 4 times, all in the `<head>`.
+Open Graph scrapers (WhatsApp, Facebook, iMessage, LinkedIn, X) cannot resolve a
+relative path, so this had to be a real URL or the share card would appear with no
+image. **If the site ever moves to a different address — a custom domain, a renamed
+repo — these must be updated.** They are in the `<head>` of `index.html` (4 tags) and
+`index_v1.html` (3 tags).
 
-**Why it matters:** `og:image` must be an absolute URL. Link-preview scrapers
-(WhatsApp, Facebook, iMessage, LinkedIn, X) do not resolve relative paths — leave it
-and the share card appears with **no image**. Since this will most likely be sent over
-WhatsApp, that is the difference between a proper preview card and a bare grey link.
-
-Verify it afterwards by pasting the live URL into
-<https://developers.facebook.com/tools/debug/> (works for WhatsApp too — same scraper).
+Verify a preview with <https://developers.facebook.com/tools/debug/> — that is the same
+scraper WhatsApp uses. Scrape it once the site is actually live, because these services
+cache the first result they get.
 
 ---
 
