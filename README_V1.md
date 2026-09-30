@@ -97,28 +97,35 @@ balloons, a Utah desert road, Ama Dablam in Nepal. None of it is theirs, and non
 is where they operate. Every image here is from their own Google listing. Worth pointing
 out, because it is the single biggest difference between the two.
 
-**3. The hero photos are chosen for the phone crop.** The hero is full-bleed, so on a
+**3. The lead hero photo was supplied, not scraped.** The golden-hour shot of the
+trekkers' hut came from you rather than their Google listing. It is the **same lodge and
+the same mountain** as one of their own photos (the Sandakphu hut with Kanchenjunga
+behind) — just shot at golden hour instead of midday — so it is authentic to the route.
+The original is kept at `assets/img/_source/`. Worth confirming with the client that
+they own it before it goes public.
+
+**4. The hero photos are chosen for the phone crop.** The hero is full-bleed, so on a
 phone it crops tall and centre. Anything with a person in the middle of the frame lands
 directly behind the headline. The four here keep their subject low or to one side.
 Ultra-wide panoramas were rejected for the same reason: cropping a 2000x896 shot to a
 phone's shape upscales it about 1.9x and goes soft. All four are Wild Yogi's own.
 
-**4. The Road Trips category photo is a stand-in.** There is no road-trip photograph in
+**5. The Road Trips category photo is a stand-in.** There is no road-trip photograph in
 their 245. It currently uses a valley shot. Ask them for a real one.
 
-**5. Route stages are stages, not days.** Wild Yogi have not published a day-by-day split
+**6. Route stages are stages, not days.** Wild Yogi have not published a day-by-day split
 for most routes, so the detail view says "stage by stage" and the caption tells the
 reader to ask for the exact itinerary. Nothing is invented.
 
-**6. Per-trek photos are regional, not verified.** The gallery in each detail view is
+**7. Per-trek photos are regional, not verified.** The gallery in each detail view is
 weighted to that trek's region but captioned "from Wild Yogi's own albums" rather than
 claiming each shot is from that exact route.
 
-**7. Reviews per trek.** Only Sandakphu and Valley of Flowers are named by reviewers, so
+**8. Reviews per trek.** Only Sandakphu and Valley of Flowers are named by reviewers, so
 those two show route-specific reviews. The rest fall back to general reviews with a
 caption saying so.
 
-**8. Hero copy.** The headline is from the client's own mockup. Their printed banner
+**9. Hero copy.** The headline is from the client's own mockup. Their printed banner
 tagline — *"Wander the wild, Awaken the yogi within"* — is kept in the footer so both
 are present. Ask which they want to lead with.
 
