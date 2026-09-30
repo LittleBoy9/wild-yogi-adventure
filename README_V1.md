@@ -29,7 +29,13 @@ root. That is fixed and cannot be changed in Settings. So:
 | https://littleboy9.github.io/wild-yogi-adventure/ | the live page (`index.html`) |
 | https://littleboy9.github.io/wild-yogi-adventure/index_v1.html | **this page** — the link to send the client |
 
-`og:image` is already absolute and pointing at that host, so WhatsApp previews work.
+`og:image` is already absolute and points at `assets/img/og-v1.jpg`, which is the
+golden-hour lead hero. `index.html` keeps its own separate `og.jpg`, so changing one
+never affects the other.
+
+**Link previews are cached.** WhatsApp, Facebook and iMessage keep the first version
+they scrape, so after changing a hero or the OG image, re-scrape the URL once at
+<https://developers.facebook.com/tools/debug/> or the old picture keeps appearing.
 If the site moves to a custom domain, update the 3 tags in this file's `<head>`.
 
 If you would rather have a tidier link for the client, move this to `v1/index.html` and
