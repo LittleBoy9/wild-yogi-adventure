@@ -97,22 +97,28 @@ balloons, a Utah desert road, Ama Dablam in Nepal. None of it is theirs, and non
 is where they operate. Every image here is from their own Google listing. Worth pointing
 out, because it is the single biggest difference between the two.
 
-**3. The Road Trips category photo is a stand-in.** There is no road-trip photograph in
+**3. The hero photos are chosen for the phone crop.** The hero is full-bleed, so on a
+phone it crops tall and centre. Anything with a person in the middle of the frame lands
+directly behind the headline. The four here keep their subject low or to one side.
+Ultra-wide panoramas were rejected for the same reason: cropping a 2000x896 shot to a
+phone's shape upscales it about 1.9x and goes soft. All four are Wild Yogi's own.
+
+**4. The Road Trips category photo is a stand-in.** There is no road-trip photograph in
 their 245. It currently uses a valley shot. Ask them for a real one.
 
-**4. Route stages are stages, not days.** Wild Yogi have not published a day-by-day split
+**5. Route stages are stages, not days.** Wild Yogi have not published a day-by-day split
 for most routes, so the detail view says "stage by stage" and the caption tells the
 reader to ask for the exact itinerary. Nothing is invented.
 
-**5. Per-trek photos are regional, not verified.** The gallery in each detail view is
+**6. Per-trek photos are regional, not verified.** The gallery in each detail view is
 weighted to that trek's region but captioned "from Wild Yogi's own albums" rather than
 claiming each shot is from that exact route.
 
-**6. Reviews per trek.** Only Sandakphu and Valley of Flowers are named by reviewers, so
+**7. Reviews per trek.** Only Sandakphu and Valley of Flowers are named by reviewers, so
 those two show route-specific reviews. The rest fall back to general reviews with a
 caption saying so.
 
-**7. Hero copy.** The headline is from the client's own mockup. Their printed banner
+**8. Hero copy.** The headline is from the client's own mockup. Their printed banner
 tagline — *"Wander the wild, Awaken the yogi within"* — is kept in the footer so both
 are present. Ask which they want to lead with.
 

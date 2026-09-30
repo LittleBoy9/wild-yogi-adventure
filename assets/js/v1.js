@@ -74,8 +74,13 @@
   $$('a', menu).forEach(a => a.addEventListener('click', () => setMenu(false)));
 
   /* ---------------------------------------------------------------- hero bg */
-  const heroShots = ['assets/img/hero/hero-1.webp','assets/img/hero/hero-2.webp',
-                     'assets/img/hero/hero-3.webp','assets/img/hero/hero-4.webp'];
+  /* Hero set for this page only. index.html keeps its own hero-1..4 untouched.
+     Chosen so the subject is never dead-centre, because the phone crop is tall
+     and a centred figure lands directly behind the headline. Ultra-wide
+     panoramas were rejected too: cropping 2000x896 to a phone's shape upscales
+     it ~1.9x and goes soft. */
+  const heroShots = ['assets/img/hero/v1-1.webp','assets/img/hero/v1-2.webp',
+                     'assets/img/hero/v1-3.webp','assets/img/hero/v1-4.webp'];
   const bg = $('#heroBg'), dots = $('#heroDots');
   bg.innerHTML = heroShots.map((s,i) =>
     '<div class="' + (i===0?'on':'') + '" style="background-image:url(\'' + s + '\')"></div>').join('');
