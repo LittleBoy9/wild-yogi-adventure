@@ -1,0 +1,23 @@
+.fab {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 450;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+  height: 54px;
+  padding: 0 16px;
+  border-radius: 100px;
+  text-decoration: none;
+  background: #25d366;
+  color: #062b14;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  transition: gap 0.35s var(--ease), box-shadow 0.3s;
+}
+.fab svg { width: 26px; height: 26px; flex: none; }
+.fab b { display: block; max-width: 0; overflow: hidden; white-space: nowrap; font-size: 14px; transition: max-width 0.4s var(--ease); }
+.fab:hover { gap: 9px; box-shadow: 0 16px 40px rgba(37, 211, 102, 0.4); }
+.fab:hover b { max-width: 180px; }
+@media (max-width: 560px) { .fab { right: 14px; bottom: 14px; height: 50px; padding: 0 14px; } }

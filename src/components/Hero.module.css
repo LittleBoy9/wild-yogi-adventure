@@ -1,0 +1,137 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--dark);
+}
+
+.bg { position: absolute; inset: -5% 0; }
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  opacity: 0;
+  transition: opacity 1.6s var(--ease);
+}
+.slide[data-on='true'] { opacity: 1; animation: kb 18s linear forwards; }
+@keyframes kb { from { transform: scale(1.05); } to { transform: scale(1.16); } }
+@media (prefers-reduced-motion: reduce) { .slide[data-on='true'] { animation: none; } }
+
+/* Two stacked scrims. The first seats the text column on darkness; the second
+   shapes the top and hands off to the page background. Both were lightened
+   from an earlier version that compounded to ~.95 and washed the photographs
+   out, with the headline's text-shadow carrying legibility instead. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(100deg, rgba(20,16,12,.80) 0%, rgba(20,16,12,.50) 38%, rgba(20,16,12,.12) 70%, transparent 94%),
+    linear-gradient(180deg, rgba(20,16,12,.52) 0%, rgba(20,16,12,.02) 30%, rgba(20,16,12,.30) 80%, rgba(20,16,12,.58) 93%, var(--bg) 100%);
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding: 0 var(--gut) clamp(74px, 11vh, 120px);
+  color: var(--on-dark);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 20px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--on-dark-ember);
+}
+
+.title {
+  margin: 0 0 22px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(40px, 7.6vw, 104px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  text-shadow: 0 2px 30px rgba(20,16,12,.7), 0 1px 4px rgba(20,16,12,.45);
+}
+.title span { display: block; overflow: hidden; }
+.title span i { display: block; font-style: normal; transform: translateY(110%); animation: up 1s var(--ease) forwards; }
+.title span:nth-child(2) i { animation-delay: 0.12s; color: var(--on-dark-ember); font-style: italic; }
+@keyframes up { to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .title span i { transform: none; animation: none; } }
+
+.sub {
+  max-width: 54ch;
+  margin: 0 0 30px;
+  font-size: clamp(15px, 1.6vw, 18.5px);
+  color: var(--on-dark-dim);
+  text-shadow: 0 1px 16px rgba(20,16,12,.8), 0 1px 3px rgba(20,16,12,.5);
+}
+
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 34px; }
+
+.proof {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 19px;
+  border: 1px solid var(--on-dark-line);
+  border-radius: 100px;
+  background: rgba(20,16,12,.42);
+  backdrop-filter: blur(8px);
+  text-decoration: none;
+  color: var(--on-dark);
+}
+.proof b { font-family: var(--font-mono); font-size: 15px; font-variant-numeric: tabular-nums; }
+.stars { color: var(--sun); letter-spacing: 1px; font-size: 13px; }
+[data-theme='light'] .stars { color: #F0B94E; }
+.proofMeta { font-size: 12.5px; color: var(--on-dark-mute); padding-left: 14px; border-left: 1px solid var(--on-dark-line); }
+
+.dots {
+  position: absolute;
+  right: var(--gut);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.dots button {
+  width: 8px; height: 8px; padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(245,241,232,.55);
+  background: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.dots button[aria-current='true'] { background: var(--on-dark-ember); border-color: var(--on-dark-ember); transform: scale(1.4); }
+@media (max-width: 760px) { .dots { display: none; } }
+
+.scroll {
+  position: absolute;
+  left: var(--gut);
+  bottom: 22px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--on-dark-mute);
+}
+.scrollLine { display: block; width: 46px; height: 1px; background: var(--on-dark-line); overflow: hidden; }
+.scrollLine i { display: block; width: 40%; height: 100%; background: var(--on-dark-ember); animation: slide 2.3s var(--ease) infinite; }
+@keyframes slide { 0% { transform: translateX(-100%); } 100% { transform: translateX(250%); } }

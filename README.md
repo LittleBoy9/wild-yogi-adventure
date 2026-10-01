@@ -1,224 +1,202 @@
-# Wild Yogi Adventures — landing page
+# Wild Yogi Adventures
 
-A static, single-page site for **Wild Yogi Adventures**, a trekking company based in
-Maheshtala, Kolkata. No framework, no build step, no dependencies — plain HTML, CSS
-and vanilla JS, ready to host on GitHub Pages.
-
-**Tagline:** *"Wander the wild, Awaken the yogi within."* — their own, taken from their
-printed expedition banners.
-
----
-
-## Share previews — already done ✅
-
-`og:image` is absolute and points at the live host:
-
-```
-https://littleboy9.github.io/wild-yogi-adventure/assets/img/og.jpg
-```
-
-Open Graph scrapers (WhatsApp, Facebook, iMessage, LinkedIn, X) cannot resolve a
-relative path, so this had to be a real URL or the share card would appear with no
-image. **If the site ever moves to a different address — a custom domain, a renamed
-repo — these must be updated.** They are in the `<head>` of `index.html` (4 tags) and
-`index_v1.html` (3 tags).
-
-Verify a preview with <https://developers.facebook.com/tools/debug/> — that is the same
-scraper WhatsApp uses. Scrape it once the site is actually live, because these services
-cache the first result they get.
-
----
-
-## Deploy to GitHub Pages
+Production site for **Wild Yogi Adventures**, a Himalayan trekking company based in
+Maheshtala, Kolkata. Next.js 16 (App Router) + TypeScript.
 
 ```bash
-git init
-git add -A
-git commit -m "Wild Yogi Adventures landing page"
-git branch -M main
-git remote add origin https://github.com/<you>/<repo>.git
-git push -u origin main
+npm install
+npm run dev        # http://localhost:3001
+npm run build
+npm test           # 90 tests
+npm run typecheck
+npm run lint
 ```
 
-Then: **Settings → Pages → Source: Deploy from a branch → `main` / `(root)` → Save.**
+---
 
-The site goes live at `https://<you>.github.io/<repo>/` in a minute or two.
+## Why this exists
 
-Every path in the project is **relative**, so it works at any base path — a project
-page, a user page, or a custom domain — with no config change. `.nojekyll` is included
-so GitHub serves the `assets/` folder untouched.
+The approved prototype put all eight treks behind a URL fragment
+(`index_v1.html#trek/sandakphu`), so search engines saw **one page, not eight**. For a
+company whose customers find them by searching "Sandakphu trek from Kolkata", that is a
+real cost.
 
-### Custom domain
+Every trek now has a **real, statically prerendered URL**:
 
-Their banners already print **`www.wildyogiadventures.com`** — but that domain does not
-currently resolve. If they own it, point it here and the printed banners start working:
+```
+/                       home
+/treks                  all journeys
+/treks/[slug]           8 prerendered pages, each with its own title,
+                        description and Open Graph image
+/sitemap.xml            generated from the content model
+/robots.txt
+```
 
-1. Create a `CNAME` file containing `www.wildyogiadventures.com`
-2. At the registrar, add a `CNAME` record for `www` → `<you>.github.io`
-3. Settings → Pages → Custom domain → enter it → tick **Enforce HTTPS**
+**2 indexable URLs → 10.**
 
-### Preview locally
+It also emits structured data the prototype never had, which matters for a local
+business whose customers search for named treks:
+
+- `LocalBusiness` + `TravelAgency` with the 5.0 aggregate rating and 105 review count
+- `TouristTrip` per route, with the stage list as an itinerary
+- `BreadcrumbList` on every inner page
+
+There is **no `offers` block anywhere**, deliberately: no price has been confirmed, and
+inventing one would put a wrong number in a search result.
+
+---
+
+## Pages and sections
+
+The approved prototype (`index_v1.html`) was a shortened pitch. This build restores the
+sections it dropped:
+
+| Section | |
+|---|---|
+| Hero | four frames, per-image focal points |
+| Trust | counters, animate once in view |
+| Escapes | the five categories |
+| Journeys | featured five, rest behind a toggle |
+| Why us | six points drawn from the reviews |
+| **Team** | the three people trekkers name |
+| Reviews | marquee, paused on hover |
+| **Gallery** | 48 photographs, paginated, lightbox |
+| **Instagram** | ten real posts, each deep-linked |
+| **Plan your trek** | WhatsApp composer + map |
+| **FAQ** | nine questions, answered only from sourced material |
+| CTA band | |
+
+The enquiry form composes a WhatsApp message rather than posting anywhere. There is no
+backend and no third party: nothing is stored, it is how the company actually talks to
+customers, and the enquiry survives in the visitor's own chat history.
+
+---
+
+## Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx              fonts, metadata, theme bootstrap
+│   ├── page.tsx                home
+│   ├── globals.css             design tokens, reset, shared primitives
+│   ├── treks/
+│   │   ├── page.tsx            all journeys
+│   │   └── [slug]/page.tsx     one journey  ← generateStaticParams
+│   ├── sitemap.ts
+│   ├── robots.ts
+│   └── not-found.tsx
+├── components/                 one .tsx + one .module.css each
+│   └── Lightbox.tsx            shared by the gallery and each trek
+├── content/                    ← all copy and data lives here
+├── lib/                        client hooks + schema builders
+└── types/                      shared types
+
+public/img/                     photography
+poc/                            the approved prototype, frozen
+```
+
+### Content
+
+Everything editable lives in `src/content/` and is fully typed:
+
+| File | Holds |
+|---|---|
+| `site.ts` | business facts, phones, WhatsApp helper |
+| `treks.ts` | the eight routes, with stages and photo sets |
+| `reviews.ts` | Google review excerpts + per-trek matching |
+| `categories.ts` | the five categories the client positions around |
+| `pillars.ts` | the "why us" points |
+| `media.ts` | gallery, Instagram posts, image dimensions |
+| `copy.ts` | headline copy |
+| `team.ts` | the people reviewers name |
+
+Adding a trek to `TREKS` automatically produces its page, its sitemap entry, its card,
+and its footer link. No other file needs touching.
+
+---
+
+## Tests
 
 ```bash
-python3 -m http.server 8777
-# http://localhost:8777
+npm test
 ```
 
----
+90 tests, Vitest + Testing Library. They target the realistic failure here, which is
+content drift rather than logic bugs:
 
-## Where every fact on the page came from
+- **Every image path is checked against the filesystem.** A typo in a trek image or
+  gallery entry fails the suite instead of shipping a broken page.
+- **Altitude labels must match their numeric field**, so `11,930 ft` cannot drift from
+  `11930`.
+- **No price may appear** in the trek content or in any schema. No price has been
+  confirmed, and a wrong number in a search result is worse than no number.
+- **The sitemap must list every trek**, which guards the whole reason for the rebuild.
+- Photo indices stay in range; review fallbacks behave; FAQ answers all carry a source
+  and the internal source notes never render.
 
-Nothing on this page is invented. Sources:
+## Error and loading states
 
-| On the page | Source |
-|---|---|
-| Name, category, address, plus code | Google Business Profile |
-| **5.0 ★ / 105 reviews** | Google Business Profile, Sept 2026 |
-| Phone `82749 60430` | Google Business Profile |
-| Phones `62902 48082`, `89819 91997` | printed on their own summit banners |
-| Tagline, "est 2024" | printed on their own summit banners |
-| Sandakphu–Phalut **11,930 ft** | their Sandakphu banner |
-| Tunganath–Chandrasila **12,110 ft** | their Tunganath banner |
-| Rupin Pass **15,350 ft** | their Rupin Pass banner |
-| Bali Pass **16,200 ft** | their Bali Pass banner |
-| Yeti Stone Hike **7,545 ft** | their Yeti Stone banner |
-| Aal **11,570 ft** | their trail signage |
-| Review quotes | verbatim from public Google reviews |
-| Team names (Avrajit, Tikaram, Joy) | named repeatedly across the reviews |
-| Sandakphu waypoint order | the route as described in their own reviews |
-| All 58 trek photos | their own Google Business listing |
-| Logo | their Instagram profile picture |
-| 10 Instagram posts | their public Instagram profile |
-| Har Ki Dun **13,025 ft** | their "Trek Plans 2026" Instagram post |
-| Hampta Pass **14,100 ft** | their Hampta Pass summit banner |
-| Valley of Flowers **14,200 ft**, 6D/5N, Moderate, Rishikesh | their Valley of Flowers post |
-| Yeti Stone Hike **7,545 ft**, 4D/3N, Easy, NJP–NJP | their Yeti Stone Hike post |
+`error.tsx`, `global-error.tsx` and `loading.tsx` are in place. Both error boundaries
+keep the WhatsApp link and phone number visible — if a page breaks, the visitor can
+still reach the company. `global-error` is styled inline because it cannot rely on the
+root layout it is catching for.
 
-"It is a trek, not a trip" is a phrase from one of their actual reviews.
+Note the Next.js 16 error boundary prop is `retry`, not `reset`.
 
 ---
 
-## ⚠️ Please confirm before this goes public
+## Decisions worth knowing
 
-These are the only items **not** sourced directly from Wild Yogi, and the first thing
-to check with them:
+**CSS Modules, not Tailwind.** The design was already approved as ~400 lines of tuned CSS
+with a light/dark token system. Porting it to utility classes would have risked visual
+drift for no user-visible gain. Tokens live in `globals.css`; everything else is
+colocated `.module.css`. Straightforward to swap later if you prefer Tailwind.
 
-1. **Durations** — conventional for these routes and NOT confirmed, except
-   **Valley of Flowers (6 days / 5 nights)** and **Yeti Stone Hike (4 days / 3 nights)**,
-   which are taken from their own Instagram posts.
-2. **Seasons** (`Oct–Dec · Mar–May`, …) — conventional, not confirmed.
-3. **Difficulty gradings** — our reading, except **Valley of Flowers (Moderate)** and
-   **Yeti Stone Hike (Easy)**, which are their own stated difficulty.
-4. **Route waypoint lists** on each trek card — standard published routes for Rupin,
-   Bali, Valley of Flowers and Tunganath. Only Sandakphu's comes from their own reviews.
-5. **Valley of Flowers** has no altitude, because no banner photo showed one.
-6. **Kedarnath is missing, deliberately.** They actively promote it (their Instagram
-   post advertises it "starts from 9999/-"), but there is no usable photograph: none of
-   the 245 photos on their Google listing show Kedarnath, and their Instagram graphic has
-   promo text top and bottom, leaving a clean band only ~308px tall. Cropping that to the
-   card's 3:4 shape would upscale a 231px-wide image to 900px and look obviously soft next
-   to the others. **Send one good Kedarnath photo and it is a two-minute addition.**
-   For this reason no hard count of routes appears anywhere on the page.
-7. **Elevation figures** for Srikhola, Rammam, Samanden, Sabargram, Phalut and
-   Gurdum are published trail figures. Only Sandakphu and Aal come from their own signage.
+**Light is the default theme, always.** It does not follow the device's `prefers-color-scheme`,
+because light is the direction the client approved and it should not depend on whether
+their phone is in dark mode. Dark is one tap away and is remembered. `ThemeScript` applies
+it before first paint so there is no flash; `useTheme` reads the DOM attribute through
+`useSyncExternalStore` rather than mirroring it into React state, so the two cannot drift
+during hydration.
 
-**There is no pricing anywhere on the site**, by design — every trek CTA opens WhatsApp
-asking for dates and cost, so nothing can be wrong in front of a customer.
+**Content over photographs keeps light-on-dark text in both themes.** The hero, the trek
+cards and the trek page header sit on photography, so they redefine the colour tokens
+locally rather than following the theme.
 
-The logo is **their real one**, taken from their Instagram profile picture
-(`assets/img/brand/logo.webp`). Instagram only serves it publicly at **150×150**, which
-is sharp enough at the sizes used here (42px in the nav, 76px in the footer) but not for
-print or a large hero. Worth asking them for the original vector.
+**Hero focal points.** The hero is full-bleed, so phones crop a tall centre slice. Each
+slide carries a `position` so the subject does not land behind the headline. Ultra-wide
+panoramas are unsuitable regardless of how good they look on desktop — cropping a
+2000×896 image to a phone's shape upscales it ~1.9× and goes soft.
+
+**`params` is a Promise.** Next.js 16 removed synchronous access, so page and metadata
+functions `await props.params`.
 
 ---
 
-## Editing
+## Before launch
 
-Almost everything is data-driven. To change content you only touch
-**`assets/js/data.js`**:
-
-| Want to change | Edit |
-|---|---|
-| Treks, altitudes, routes, blurbs | `WY.treks` |
-| Elevation profile waypoints | `WY.profile` |
-| Review quotes | `WY.reviews` |
-| Team members | `WY.team` |
-| "Why us" points | `WY.pillars` |
-| Phone / WhatsApp / Instagram / address | `WY.biz` |
-
-Adding a trek to `WY.treks` automatically adds it to the grid, the filter chips, the
-footer list, the ticker and the enquiry form's dropdown. Drop a matching image into
-`assets/img/treks/` and point `img` at it.
-
-### Adding photos
-
-Put `gNN.webp` (760px wide) and `gNN-lg.webp` (1450px wide) in `assets/img/gallery/`,
-then bump the `48` in the `WY.gallery` line of `data.js`.
-
----
-
-## Instagram
-
-The strip under **@wildyogiadventures** shows their **10 most recent real posts**,
-each tile deep-linking to that exact post (reels get a play badge). Captured
-2026-09-20 from their public profile.
-
-The thumbnails are **self-hosted** rather than hotlinked, because Instagram's CDN URLs
-are signed and expire within days — linking them directly would leave broken images on
-the page inside a week.
-
-It is a snapshot, not a live feed, and that is a platform limit rather than a choice.
-Instagram's Basic Display API shut down in **December 2024**, and the Graph API needs a
-linked Facebook Business account plus a server to hold the token — neither of which a
-static GitHub Pages site can do without logging into an account. The alternatives are
-third-party scraper APIs, which cost money, expose a key in client-side code, break
-regularly and violate Instagram's terms.
-
-**To refresh the posts**, re-download the current thumbnails into `assets/img/insta/`
-and update the `WY.instagram` array in `data.js`. Takes a couple of minutes.
-
-If they ever want a genuinely live feed, the clean route is official post embeds
-(`instagram.com/p/<shortcode>/embed` in an iframe) — no login, no key, no token, though
-it looks like Instagram's chrome rather than the site's design.
-
-## What's in here
+Set the canonical origin, or metadata and the sitemap will point at localhost:
 
 ```
-index.html                 one page, all sections
-assets/css/style.css       all styling
-assets/js/data.js          ← all content lives here
-assets/js/main.js          all interactions
-assets/img/hero/           4 rotating hero images
-assets/img/treks/          6 trek card images
-assets/img/gallery/        48 photos × 2 sizes
-assets/img/insta/          10 real Instagram post thumbnails
-assets/img/brand/          their logo (from the Instagram profile picture)
-assets/img/og.jpg          social share preview
-.nojekyll                  tells GitHub Pages to serve assets/ as-is
+NEXT_PUBLIC_SITE_URL=https://wildyogiadventures.com
 ```
 
-Roughly 25 MB total, mostly photography. The gallery is lazy-loaded and paginated, so
-the initial load is a fraction of that.
+Open items are documented in [`poc/README_V1.md`](poc/README_V1.md) — briefly:
 
-## Features
+1. **Prices and departure dates** — none on the site. Every CTA opens a WhatsApp enquiry.
+2. **Durations, seasons and gradings are unconfirmed** for six of the eight routes.
+   Valley of Flowers and Yeti Stone Hike carry the company's own published figures.
+3. **Kedarnath is missing** — they run it, but there is no usable photograph.
+4. **One stock photograph** (the second hero, Pexels 4751943, free commercial licence).
+   Everything else is Wild Yogi's own.
+5. **The logo is 150×150**, the largest Instagram serves publicly. Fine on screen, not
+   for print. Ask for the vector.
 
-Preloader with a drawing ridge line · scroll progress bar · rotating
-parallax hero · animated split headings · scroll reveals · counting stats · filterable
-trek cards with 3D tilt · **interactive SVG elevation profile of the Sandakphu ridge** ·
-dual review marquees · masonry gallery with a keyboard- and swipe-navigable lightbox ·
-live-linked Instagram posts · WhatsApp enquiry composer · embedded map · floating WhatsApp button.
+---
 
-**Dark and light themes.** Dark is the default. The toggle sits in the nav (and in the
-mobile menu); the choice is remembered in `localStorage`, and until someone chooses, the
-site follows the operating system setting. An inline script in `<head>` sets the theme
-before first paint so there is no flash of the wrong one.
+## `poc/`
 
-The hero, the trek cards and the lightbox sit on top of photographs, so they keep
-light-on-dark text in **both** themes — done by redefining the colour tokens locally for
-those regions rather than rewriting every rule.
-
-Every text style was measured against its actual rendered background:
-**dark theme worst case 5.92:1, light theme worst case 4.56:1** — both clear WCAG AA.
-
-Respects `prefers-reduced-motion`, keyboard accessible, no horizontal scroll at 320px,
-zero console errors, and no cookies or trackers of any kind.
+The approved prototype, kept verbatim: `poc/index.html` (the first build) and
+`poc/index_v1.html` (the version the client signed off). Self-contained, still opens, and
+excluded from linting and the app build. Kept as the reference for what was agreed.

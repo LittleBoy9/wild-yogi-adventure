@@ -1,0 +1,204 @@
+/* ==========================================================================
+   Design tokens, reset and shared primitives.
+   Component-specific styling lives in CSS Modules next to each component.
+
+   Palette is sampled from Wild Yogi's own logo: cream #E4DECC, a terracotta at
+   roughly hue 21, and a warm black. Light is the default, per the approved
+   design; dark is opt-in via [data-theme="dark"].
+   ========================================================================== */
+
+:root {
+  --bg:        #FBF8F1;
+  --bg-1:      #FFFFFF;
+  --bg-2:      #F3EEE3;
+  --bg-3:      #E9E2D3;
+  --ink:       #15100C;
+  --ink-dim:   rgba(21, 16, 12, 0.74);
+  --ink-mute:  rgba(21, 16, 12, 0.64);
+  --line:      rgba(21, 16, 12, 0.11);
+  --line-2:    rgba(21, 16, 12, 0.20);
+
+  /* Darkened until it clears WCAG AA on both --bg (5.5:1) and --bg-2 (5.1:1)
+     while holding the brand hue. */
+  --ember:      #A84717;
+  --ember-hot:  #8F3B12;
+  --ember-ink:  #FFF7F0;
+  --ember-soft: rgba(168, 71, 23, 0.09);
+  --sun:        #8A6208;
+  --glacier:    #3B6879;
+
+  /* Used wherever content sits on a photograph, in both themes. */
+  --dark:         #14100C;
+  --on-dark:      #F5F1E8;
+  --on-dark-dim:  rgba(245, 241, 232, 0.78);
+  --on-dark-mute: rgba(245, 241, 232, 0.62);
+  --on-dark-line: rgba(245, 241, 232, 0.16);
+  --on-dark-ember:#E8834F;
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans:    var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-mono:    var(--font-mono-jb), ui-monospace, monospace;
+
+  --gut: clamp(18px, 4.5vw, 72px);
+  --max: 1280px;
+  --radius: 20px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-theme='dark'] {
+  --bg:       #100D0A;
+  --bg-1:     #17130F;
+  --bg-2:     #1D1813;
+  --bg-3:     #272019;
+  --ink:      #F2EDE0;
+  --ink-dim:  rgba(242, 237, 224, 0.74);
+  --ink-mute: rgba(242, 237, 224, 0.58);
+  --line:     rgba(242, 237, 224, 0.10);
+  --line-2:   rgba(242, 237, 224, 0.20);
+
+  --ember:      #E37A45;
+  --ember-hot:  #F08C55;
+  --ember-ink:  #1B0F07;
+  --ember-soft: rgba(227, 122, 69, 0.14);
+  --sun:        #F0B94E;
+  --glacier:    #8FB4C2;
+  --dark:       #0B0806;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color 0.45s var(--ease), color 0.45s var(--ease);
+}
+
+body[data-locked='true'] { overflow: hidden; }
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+
+::selection { background: var(--ember); color: var(--ember-ink); }
+
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2.5px solid var(--ember);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- shared primitives -------------------------------------------------- */
+
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gut);
+}
+
+.section { padding-block: clamp(60px, 9vw, 120px); position: relative; }
+.section--alt { background: var(--bg-2); border-block: 1px solid var(--line); }
+
+.kick {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 14px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+.kick::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: var(--ember);
+  border-radius: 2px;
+}
+
+.head {
+  margin: 0 0 14px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(29px, 4.6vw, 56px);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+.sub {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--ink-dim);
+  font-size: clamp(14.5px, 1.5vw, 17px);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 15px 26px;
+  border-radius: 100px;
+  border: 1.5px solid transparent;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border-color 0.3s,
+    transform 0.3s var(--ease), box-shadow 0.3s;
+}
+.btn svg { width: 15px; height: 15px; transition: transform 0.3s var(--ease); }
+.btn:hover svg { transform: translateX(4px); }
+
+.btn--fill { background: var(--ember); color: var(--ember-ink); }
+.btn--fill:hover {
+  background: var(--ember-hot);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(168, 71, 23, 0.28);
+}
+
+.btn--line {
+  border-color: var(--line-2);
+  color: var(--ink);
+  background: var(--bg-1);
+}
+.btn--line:hover { border-color: var(--ink); transform: translateY(-2px); }
+
+.btn--onDark { background: var(--on-dark); color: var(--dark); }
+.btn--onDark:hover { background: #fff; transform: translateY(-2px); }
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

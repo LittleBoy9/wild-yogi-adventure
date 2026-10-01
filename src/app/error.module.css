@@ -1,0 +1,9 @@
+.wrap { padding-top: clamp(140px, 22vh, 220px); padding-bottom: clamp(60px, 10vh, 120px); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.digest {
+  margin-top: 22px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--ink-mute);
+  word-break: break-all;
+}

@@ -1,0 +1,23 @@
+.wrap { padding-top: clamp(140px, 22vh, 220px); padding-bottom: clamp(60px, 10vh, 120px); }
+.skeleton { display: grid; gap: 14px; }
+.bar { height: 14px; border-radius: 8px; background: var(--bg-2); overflow: hidden; position: relative; }
+.bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, var(--bg-3), transparent);
+  animation: shimmer 1.4s infinite;
+}
+@keyframes shimmer { to { transform: translateX(100%); } }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 22px; margin-top: 30px; }
+.card { height: 360px; border-radius: var(--radius); background: var(--bg-2); border: 1px solid var(--line); position: relative; overflow: hidden; }
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, var(--bg-3), transparent);
+  animation: shimmer 1.6s infinite;
+}
+@media (prefers-reduced-motion: reduce) { .bar::after, .card::after { animation: none; } }
